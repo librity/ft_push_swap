@@ -50,3 +50,18 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Log files
+*.log
+
+# Build
+pipex
+
+# Tests
+test
+
+# Examples
+examples/example.c
+infile
+outfile
+no_permissions
