@@ -1,0 +1,22 @@
+gcc bubble_sort_strs.c
+
+./a.out
+./a.out "1zwyUp7oj"
+./a.out "GsFt4JQeWkPz2"
+./a.out "fTV QJaq n2 S7jtsUlD OUiwx gT38Nw kI40ar25GFpl"
+./a.out "8w4J3aG2vpNe 8UHKzyjSDec Wunwo5A ehC7wOXZUKYa jyb SbJUDAGN2Y vYtFEy mp U39aPzlQ s"
+./a.out "fN9" "2G5ZWcFpTh" "2R40Bgsk" "qNTwH8BzEi7" "mrGx" "zcJW" "zVxvyrqDdTWk" "OwLMcruflHT" "Zh6T451RD" "BQklDhzEYZ" "bxkSF" "twTbpcA" "1gZCawHKRu"
+./a.out "ieLFtR7m" "uQB3Fl1O8Wg4" "58gahIc" "nu"
+./a.out "FCNVAJkng Fmzdgto3SAY qv12Y3DP bS6lzAjONp" "812DofxuZe0 IxmgWKAFh pTRSYo90x" "QF1auPMmcw wzEk fS1N" "DN6 17Z E16Ssb iYKH8Vgsob" "52R0sSwk YJZV7g1CoE" "aIPKnsOWZzqC 2WhuE" "ZGgIOL2WjHCT 3 xVPALg" "IrVCl 3 74Lxp3" "TJDd B p"
+./a.out "kKm1hBSvIH B p3KydxH2DgS" "RB 32Ubqa8 jnFZHE8 Pf7pYaZ" "T7gNn2KZV" "vm9QKJoEa6I8 r ieDJX8ogM" "F 0qTC6gQjZa7w ycW5OF HiJqh5" "yD7 RnpxFq75yaO" "NpA0R PTy2qF" "LOWvZ xTuBERemfOP2 rylNYWM" "Bkp0EJ SI znIjKk1w QMo0Rzg"
+./a.out "V2F1Biag05lD TWwm0" "eQnf hVDl3nW E27mwCrj" "K zAyd2cs" "p3 IdhTL"
+./a.out "yItOsxeYwMu fHkvcJwleEGb a95BDvfzQZA ECnXRKZbpGkA" "ZxCzj4TpMQ HTar8vJ" "SVcK2LO h" "R dJYv2eLHj N7G Eq" "RS lQZmObdIF3 s xu8Jm4Dj" "PRUb5Bs0d jiDVYo8SWp pXKJBlFqhz jflRQK"
+./a.out "2k sbulH yetu" "y6EKuz8 nTKNlQAGX9vB F" "6ZQJtIyUfE n" "gulS b83I9GBMhC LcieWpXj89o" "1thZI0G" "I7L9W5vMR8 V5Iw4 SQYpk3j oz" "X1 m5u OAr8 B5muJerjc" "t6mZy Ft62" "VPLbKiQGtaE" "ZbJIWKyt" "SAqesp84L"
+./a.out "Els4b06a HA4Kqj8JXUb pWkd4l" "dQsbj0RM" "aIb37kwh M1GjP6Ury 5tpCJg" "Pu Qvkg" "CZADRVHg9 4p3ePGSgMld" "EXZ nrLhsp 9Kum3qIvC8w" "89bpS D jTbf8xJL9" "EsAenMB3LaZC 2uWcf5l" "2z JGSFYxDp40if G 8lYGthMLD" "HJQ5RknG3 RostAV fpHRbA8UamD" "BTGbRX YGgXcVnFo" "Ms7frXdVh" "W" "ZOQqgUemj3w SlQ" "HtvMnP8midF hR HzEJerm5B02"
+./a.out "" "b" "Ab" "aBb" "B" "" "AAB" "aA" "a" "aaA" "Bb" "AAB" "ab" "" "Baa" "" "B" "aa" "b" "aAa" "A" "AAa" "bA" "A" "b" "AA" "BBa" "" "" "B" "baA" "A" "B" "a" "" "" "AA" "" "B"
+./a.out "BAb" "Ba" "BAB" "A" "a" "" "" "BbA" "baa" "aAA" "BA" "" "a" "bb" "" "baa" "" "" "" "bb" "baa" "" "aBa" "b" "A" "" "" "ABb" "" "aA" "AAb" "bbB" "Ba" "" "" "a" "" "" "b"
+./a.out "aaA" "B" "Bb" "a" "aB" "aa" "" "" "" "Aaa" "a" "B" "ba" "aA" "BbB" "BAb" "Bbb"
+./a.out "ABb" "" "ab" "" "" "a" "" "Aa" "BaA" "abB" "" "A" "BAb" "A" "" "b"
+./a.out "" "" "bb" "BB" "BA" "" "B" "bbb" "A" "b" "BB" "ab" "A" "Ba" "aA" "Bbb" "" "a" "Bb" "B" "BA" "" "" "ab"
+./a.out "AA" "Aa" "" "B" "" "BA" "ab" "B" "AB" "A" "" "b" "BA" "AaA" "" "AaA" "a" "" "" "aA" "Bb" "b" "aaa"
+./a.out "AA" "" "bAA" "a" "" "A" "A" "" "A" "Ba" "" "aAB" "aa" "a" "A" "Abb" "ab" "" "b" "BAA" "ab" "BbB" "BB" "aB" "bb" "aba" "" "BAa"

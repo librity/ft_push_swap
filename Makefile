@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/18 17:04:42 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/18 18:30:38 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ re: fclean all
 # DIRS
 ################################################################################
 
-make_dirs: $(ARCHIVES_PATH) $(OBJECTS_PATH) \
+dirs: $(ARCHIVES_PATH) $(OBJECTS_PATH) \
 	$(M_OBJECT_DIRECTORIES) $(B_OBJECT_DIRECTORIES)
 
 $(ARCHIVES_PATH):
@@ -232,7 +232,7 @@ dump_sources:
 .PHONY: \
 all clean fclean re \
 \
-make_dirs \
+dirs \
 \
 tclean \
 \

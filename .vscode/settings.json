@@ -14,7 +14,7 @@
     "cstdlib": "c",
     "cstdio": "c",
     "unistd.h": "c",
-    "pipex.h": "c",
+    "push_swap.h": "c",
     "defines.h": "c",
     "limits.h": "c",
     "utils.h": "c",
@@ -33,7 +33,7 @@
     "ft_printf.h": "c",
     "wait.h": "c",
     "memory": "c",
-    "pipex_bonus.h": "c",
+    "push_swap_bonus.h": "c",
     "stdio.h": "c"
   }
 }

@@ -55,7 +55,7 @@ dkms.conf
 *.log
 
 # Build
-pipex
+push_swap
 
 # Tests
 test
