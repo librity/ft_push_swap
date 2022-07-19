@@ -32,6 +32,7 @@ typedef struct s_push_swap
 \******************************************************************************/
 
 t_push_swap	*c(void);
+void		initialize_control(int argc, char **argv);
 t_list		*a(void);
 t_list		*b(void);
 void		free_memory(void);
@@ -40,8 +41,8 @@ void		free_memory(void);
  * ERRORS
 \******************************************************************************/
 
-void		check_argc(int argc);
-void		check_argv(int argc, char **argv);
+void		validate_argc(void);
+void		validate_argv(void);
 
 void		die(void);
 
