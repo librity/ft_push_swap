@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 15:56:59 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/19 15:58:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#include <push_swap.h>
 
-# define VERBOSE 0
+t_push_swap	*c(void)
+{
+	static t_push_swap	__control_instance;
 
-/******************************************************************************\
- * ERRORS
-\******************************************************************************/
+	return (&__control_instance);
+}
 
-# define ERR_GENERIC "Error\n"
-# define ERR_NULL_POINTER "ERROR: critical null pointer"
+t_list	*a(void)
+{
+	return (c()->a);
+}
 
-#endif
+t_list	*b(void)
+{
+	return (c()->b);
+}
+
+void	free_memory(void)
+{
+	ft_free_lalloc(&(c()->free_me));
+}
