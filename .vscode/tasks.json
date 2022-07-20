@@ -4,10 +4,10 @@
     {
       "type": "cppbuild",
       "label": "C/C++: gcc build active file",
-      "command": "/usr/bin/gcc",
-      "args": ["-g", "*.c", "-o", "a.out"],
+      "command": "/usr/bin/make",
+      "args": ["re"],
       "options": {
-        "cwd": "${workspaceFolder}/ft_printf"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
       "group": {

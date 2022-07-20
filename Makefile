@@ -6,17 +6,23 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/19 22:21:46 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/20 19:44:59 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-CC_STRICT = $(CC) $(CCF_STRICT) $(CCF_OPTIMIZATION)
+CC_STRICT = $(CC) \
+	$(CCF_INCLUDES) \
+	$(CCF_STRICT)
 
-CCF_STRICT = -Wall -Wextra -Werror
+CC_FULL = $(CC_STRICT) \
+	$(CCF_OPTIMIZATION) \
+	$(CCF_DEBUG)
+
 CCF_INCLUDES = -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
+CCF_STRICT = -Wall -Wextra -Werror
 CCF_OPTIMIZATION = -O3
 CCF_DEBUG = -g -fsanitize=leak
 
@@ -62,8 +68,7 @@ M_ARCHIVES = $(M_ARCHIVE) $(LIBFT)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(M_ARCHIVE)
-	$(CC_STRICT) $(CCF_DEBUG) \
-		$(CCF_INCLUDES) \
+	$(CC_FULL) \
 		$(M_MAIN) \
 		$(M_ARCHIVES) \
 		-o $(NAME)
@@ -72,7 +77,7 @@ $(M_ARCHIVE): $(M_HEADER) $(M_OBJECTS)
 	$(ARCHIVE_AND_INDEX) $(M_ARCHIVE) $(M_OBJECTS)
 
 $(M_OBJECTS_PATH)/%.o: $(M_SOURCES_PATH)/%.c
-	$(CC_STRICT) $(CCF_INCLUDES) -c -o $@ $<
+	$(CC_FULL) -c -o $@ $<
 
 clean:
 	$(REMOVE) $(M_OBJECTS)
@@ -128,8 +133,7 @@ CCF_TEST_LIBS = -lrt -lm
 EXECUTE_TESTS = ./test
 
 build_tests: re
-	$(CC) $(CCF_DEBUG) \
-		$(CCF_INCLUDES) \
+	$(CC_FULL) \
 		$(TEST_SOURCES) \
 		$(M_ARCHIVES) \
 		$(CCF_TEST_LIBS) \
@@ -155,8 +159,7 @@ example: build_example
 	$(EXECUTE_EXAMPLE)
 
 build_example: $(M_ARCHIVE)
-	$(CC) $(CCF_DEBUG) \
-		$(CCF_INCLUDES) \
+	$(CC_FULL) \
 		$(EXAMPLE_MAIN) \
 		$(M_ARCHIVES)
 
@@ -167,34 +170,39 @@ example_clean: fclean
 # VALGRIND
 ################################################################################
 
-VALGRIND = valgrind
-VALGRIND_FLAGS = --leak-check=full --show-leak-kinds=all --trace-children=yes
-VALGRIND_LOG = valgrind_leaks.log
-VALGRIND_LOG_FLAGS = --log-file=$(VALGRIND_LOG) \
+CC_VG = $(CC) \
+	$(CCF_INCLUDES) \
+	$(CCF_STRICT)
+
+VG = valgrind
+VG_FLAGS = --leak-check=full --show-leak-kinds=all --trace-children=yes
+VG_LOG = valgrind_leaks.log
+VG_LOG_FLAGS = --log-file=$(VG_LOG) \
 	--leak-check=full \
 	--show-leak-kinds=all \
 	--trace-children=yes \
 	--track-origins=yes \
 	--verbose
-# VALGRIND_TARGET = ./$(NAME) 2 +2147483648 3
-# VALGRIND_TARGET = ./$(NAME) 1 2 2 3
-VALGRIND_TARGET = ./$(NAME) 3 2 1 3
+
+# VG_TARGET = ./$(NAME) 2 +2147483648 3
+# VG_TARGET = ./$(NAME) 1 2 2 3
+# VG_TARGET = ./$(NAME) 3 2 1 3
+VG_TARGET = ./$(NAME) 2 1 3 6 5 8
 
 vg: vg_build
-	$(VALGRIND) $(VALGRIND_FLAGS) $(VALGRIND_TARGET)
+	$(VG) $(VG_FLAGS) $(VG_TARGET)
 
 vglog: vg_build
-	$(VALGRIND) $(VALGRIND_LOG_FLAGS) $(VALGRIND_TARGET)
+	$(VG) $(VG_LOG_FLAGS) $(VG_TARGET)
 
-vg_build: $(M_ARCHIVE)
-	$(CC_STRICT) \
-		$(CCF_INCLUDES) \
+vg_build: $(LIBFT) $(M_ARCHIVE)
+	$(CC_VG) \
 		$(M_MAIN) \
 		$(M_ARCHIVES) \
 		-o $(NAME)
 
 vglog_clean: fclean
-	$(REMOVE) $(VALGRIND_LOG)
+	$(REMOVE) $(VG_LOG)
 
 ################################################################################
 # MISC
