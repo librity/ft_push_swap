@@ -42,6 +42,7 @@ t_list		**free_me(void);
 
 int			argc(void);
 char		**argv(void);
+void		validate_arguments(void);
 
 void		free_memory(void);
 

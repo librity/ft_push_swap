@@ -6,53 +6,48 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 18:34:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:00:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	validate_arguments(void)
+static void	initialize(int argc, char **argv)
 {
-	validate_argc();
-	validate_argv();
+	initialize_control(argc, argv);
+	validate_arguments();
+}
+
+static void	sort(void)
+{
+	inspect_stacks();
+	sa();
+	inspect_stacks();
+	pb();
+	inspect_stacks();
+	pb();
+	inspect_stacks();
+	pb();
+	inspect_stacks();
+	sa();
+	inspect_stacks();
+	pa();
+	inspect_stacks();
+	pa();
+	inspect_stacks();
+	pa();
+	inspect_stacks();
+}
+
+static void	cleanup(void)
+{
+	free_memory();
 }
 
 int	main(int argc, char **argv)
 {
-	initialize_control(argc, argv);
-	validate_arguments();
-	inspect_stacks();
-	sa();
-	inspect_stacks();
-	sb();
-	inspect_stacks();
-	ss();
-	inspect_stacks();
-	ss();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pa();
-	inspect_stacks();
-	pa();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	pb();
-	inspect_stacks();
-	free_memory();
+	initialize(argc, argv);
+	sort();
+	cleanup();
 	return (EXIT_SUCCESS);
 }
