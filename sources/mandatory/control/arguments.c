@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   arguments.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 22:16:27 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/19 17:37:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	validate_arguments(void)
+int	argc(void)
 {
-	validate_argc();
-	validate_argv();
+	return (c()->argc);
 }
 
-int	main(int argc, char **argv)
+char	**argv(void)
 {
-	initialize_control(argc, argv);
-	validate_arguments();
-	inspect_stacks();
-	return (EXIT_SUCCESS);
+	return (c()->argv);
 }

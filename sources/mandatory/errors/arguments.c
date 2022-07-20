@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 17:25:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/19 22:20:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	validate_argc(void)
 {
-	if (c()->argc > 1)
+	if (argc() > 1)
 		return ;
 	die();
 }
@@ -41,22 +41,46 @@ int	int_or_die(char *str)
 	return ((int)number);
 }
 
-void	unique_or_die(int number)
+void	add_to_a(void)
 {
-	ft_printf("DEGUB: %i\n", number);
+	t_dlist	*new;
+	int		*integer;
+
+	integer = ft_lalloc(free_me(), sizeof(int));
+	*integer = c()->new_int;
+	new = ft_dlstnew_safe(integer);
+	if (*a() == NULL)
+		*a() = new;
+	else
+		ft_dlstadd_back(a(), new);
+	ft_add_lalloc(free_me(), new);
+}
+
+static void	check_unique(void *number)
+{
+	int		current;
+
+	current = *(int *)number;
+	if (current == c()->new_int)
+		die();
+}
+
+void	unique_or_die(void)
+{
+	ft_dlstiter(*a(), &check_unique);
 }
 
 void	validate_argv(void)
 {
-	char	**argv;
-	int	current;
+	char	**args;
 
-	argv = c()->argv + 1;
-	while (*argv != NULL)
+	args = argv() + 1;
+	while (*args != NULL)
 	{
-		number_or_die(*argv);
-		current = int_or_die(*argv);
-		unique_or_die(current);
-		argv++;
+		number_or_die(*args);
+		c()->new_int = int_or_die(*args);
+		unique_or_die();
+		add_to_a();
+		args++;
 	}
 }

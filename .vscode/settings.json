@@ -34,6 +34,8 @@
     "wait.h": "c",
     "memory": "c",
     "push_swap_bonus.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "libft.h": "c",
+    "random": "c"
   }
 }

@@ -21,8 +21,10 @@ typedef struct s_push_swap
 	int		argc;
 	char	**argv;
 
-	t_list	*a;
-	t_list	*b;
+	int		new_int;
+
+	t_dlist	*a;
+	t_dlist	*b;
 
 	t_list	*free_me;
 }		t_push_swap;
@@ -33,9 +35,21 @@ typedef struct s_push_swap
 
 t_push_swap	*c(void);
 void		initialize_control(int argc, char **argv);
-t_list		*a(void);
-t_list		*b(void);
+
+t_dlist		**a(void);
+t_dlist		**b(void);
+t_list		**free_me(void);
+
+int			argc(void);
+char		**argv(void);
+
 void		free_memory(void);
+
+/******************************************************************************\
+ * STACKS
+\******************************************************************************/
+
+void		inspect_stacks(void);
 
 /******************************************************************************\
  * ERRORS

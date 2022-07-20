@@ -62,6 +62,3 @@ test
 
 # Examples
 examples/example.c
-infile
-outfile
-no_permissions

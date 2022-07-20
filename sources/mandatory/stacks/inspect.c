@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   inspect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 22:16:27 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/19 21:19:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	validate_arguments(void)
+static void	put_int(void *number)
 {
-	validate_argc();
-	validate_argv();
+	ft_printf("%d ", *(int *)number);
 }
 
-int	main(int argc, char **argv)
+static void	inspect_a(void)
 {
-	initialize_control(argc, argv);
-	validate_arguments();
-	inspect_stacks();
-	return (EXIT_SUCCESS);
+	ft_printf("|A: ");
+	ft_dlstiter(*a(), &put_int);
+	ft_printf("|\n");
+}
+
+static void	inspect_b(void)
+{
+	ft_printf("|B: ");
+	ft_dlstiter(*b(), &put_int);
+	ft_printf("|\n");
+}
+
+void	inspect_stacks(void)
+{
+	inspect_a();
+	inspect_b();
 }

@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/19 16:58:45 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/19 22:21:46 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,7 +176,9 @@ VALGRIND_LOG_FLAGS = --log-file=$(VALGRIND_LOG) \
 	--trace-children=yes \
 	--track-origins=yes \
 	--verbose
-VALGRIND_TARGET = ./$(NAME) infile "grep push_swap" "wc -lw" outfile && cat outfile
+# VALGRIND_TARGET = ./$(NAME) 2 +2147483648 3
+# VALGRIND_TARGET = ./$(NAME) 1 2 2 3
+VALGRIND_TARGET = ./$(NAME) 3 2 1 3
 
 vg: vg_build
 	$(VALGRIND) $(VALGRIND_FLAGS) $(VALGRIND_TARGET)

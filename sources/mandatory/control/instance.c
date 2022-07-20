@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   instance.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 22:16:27 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/19 20:54:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	validate_arguments(void)
+t_push_swap	*c(void)
 {
-	validate_argc();
-	validate_argv();
+	static t_push_swap	__control_instance;
+
+	return (&__control_instance);
 }
 
-int	main(int argc, char **argv)
+void	initialize_control(int argc, char **argv)
 {
-	initialize_control(argc, argv);
-	validate_arguments();
-	inspect_stacks();
-	return (EXIT_SUCCESS);
+	c()->argc = argc;
+	c()->argv = argv;
+}
+
+t_dlist	**a(void)
+{
+	return (&(c()->a));
+}
+
+t_dlist	**b(void)
+{
+	return (&(c()->b));
+}
+
+t_list	**free_me(void)
+{
+	return (&(c()->free_me));
 }
