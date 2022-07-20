@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inspect.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 22:47:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/19 23:05:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	put_int(void *number)
+static void	s(char label)
 {
-	ft_printf("%s%d%s ", G, *(int *)number, RC);
+	t_dlist	*stack;
+	int		*aux;
+
+	if (label == 'a')
+		stack = *a();
+	else
+		stack = *b();
+	if (stack == NULL)
+		return ;
+	if (stack->next == NULL)
+		return ;
+	aux = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = aux;
 }
 
-static void	inspect_a(void)
+void	sa(void)
 {
-	ft_cyan("|A: (top) ");
-	ft_dlstiter(*a(), &put_int);
-	ft_red("(bottom)|\n");
+	s('a');
+	ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
-static void	inspect_b(void)
+void	sb(void)
 {
-	ft_cyan("|B: (top) ");
-	ft_dlstiter(*b(), &put_int);
-	ft_red("(bottom)|\n");
+	s('b');
+	ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
-void	inspect_stacks(void)
+void	ss(void)
 {
-	inspect_a();
-	inspect_b();
+	s('a');
+	s('b');
+	ft_putendl_fd("ss", STDOUT_FILENO);
 }
