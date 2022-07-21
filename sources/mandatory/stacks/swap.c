@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 17:32:38 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:41:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_dlist	*resolve_stack(char label)
 	return (NULL);
 }
 
-static void	s(char label)
+static void	s_(char label)
 {
 	t_dlist	*stack;
 	int		*aux;
@@ -39,19 +39,19 @@ static void	s(char label)
 
 void	sa(void)
 {
-	s('a');
+	s_('a');
 	ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
 void	sb(void)
 {
-	s('b');
+	s_('b');
 	ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
 void	ss(void)
 {
-	s('a');
-	s('b');
+	s_('a');
+	s_('b');
 	ft_putendl_fd("ss", STDOUT_FILENO);
 }

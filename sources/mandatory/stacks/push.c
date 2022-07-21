@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 20:59:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:41:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_dlist	**destination(char label)
 	return (NULL);
 }
 
-static void	p(char label)
+static void	p_(char label)
 {
 	t_dlist	*pushed;
 
@@ -47,12 +47,12 @@ static void	p(char label)
 
 void	pa(void)
 {
-	p('a');
+	p_('a');
 	ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
 void	pb(void)
 {
-	p('b');
+	p_('b');
 	ft_putendl_fd("pb", STDOUT_FILENO);
 }

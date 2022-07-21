@@ -6,55 +6,45 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 22:02:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:36:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	handle_swap(char *operation)
+static t_operation_cb	resolve_callback_or_die(char *operation)
 {
 	if (ft_streq(operation, SWAP_A))
-		sa();
+		return (sa);
 	if (ft_streq(operation, SWAP_B))
-		sb();
+		return (sb);
 	if (ft_streq(operation, SWAP_A_AND_B))
-		ss();
-}
-
-static void	handle_push(char *operation)
-{
+		return (ss);
 	if (ft_streq(operation, PUSH_TO_A))
-		pa();
+		return (pa);
 	if (ft_streq(operation, PUSH_TO_B))
-		pb();
-}
-
-static void	handle_rotate(char *operation)
-{
+		return (pb);
 	if (ft_streq(operation, ROTATE_A))
-		ra();
+		return (ra);
 	if (ft_streq(operation, ROTATE_B))
-		rb();
+		return (rb);
 	if (ft_streq(operation, ROTATE_A_AND_B))
-		rr();
+		return (rr);
+	if (ft_streq(operation, REVERSE_ROTATE_A))
+		return (rra);
+	if (ft_streq(operation, REVERSE_ROTATE_B))
+		return (rrb);
+	if (ft_streq(operation, REVERSE_ROTATE_A_AND_B))
+		return (rrr);
+	die();
+	return (NULL);
 }
-
-// static void	handle_reverse_rotate(char *operation)
-// {
-// 	if (ft_streq(operation, REVERSE_ROTATE_A))
-// 		rra();
-// 	if (ft_streq(operation, REVERSE_ROTATE_B))
-// 		rrb();
-// 	if (ft_streq(operation, REVERSE_ROTATE_A_AND_B))
-// 		rrr();
-// }
 
 void	execute(char *operation)
 {
-	handle_swap(operation);
-	handle_push(operation);
-	handle_rotate(operation);
-	// handle_reverse_rotate(operation);
+	void	(*callbalk)(void);
+
+	callbalk = resolve_callback_or_die(operation);
+	callbalk();
 	log_stacks();
 }

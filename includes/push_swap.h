@@ -29,6 +29,8 @@ typedef struct s_push_swap
 	t_list	*free_me;
 }		t_push_swap;
 
+typedef void	(*t_operation_cb)(void);
+
 /******************************************************************************\
  * CONTROL
 \******************************************************************************/
@@ -63,6 +65,10 @@ void		pb(void);
 void		ra(void);
 void		rb(void);
 void		rr(void);
+
+void		rra(void);
+void		rrb(void);
+void		rrr(void);
 
 void		execute(char *operation);
 
