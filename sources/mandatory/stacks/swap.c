@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 22:41:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 23:34:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ static t_dlist	*resolve_stack(char label)
 static void	s_(char label)
 {
 	t_dlist	*stack;
-	int		*aux;
+	int		*number;
 
 	stack = resolve_stack(label);
 	if (stack == NULL)
 		return ;
 	if (stack->next == NULL)
 		return ;
-	aux = stack->content;
+	number = stack->content;
 	stack->content = stack->next->content;
-	stack->next->content = aux;
+	stack->next->content = number;
 }
 
 void	sa(void)

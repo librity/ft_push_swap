@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 22:41:01 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 23:28:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	r_(char label)
 {
 	t_dlist	**stack;
 	t_dlist	*first;
+	t_dlist	*second;
 
 	stack = resolve_stack(label);
 	if (*stack == NULL)
@@ -33,7 +34,9 @@ static void	r_(char label)
 	if ((*stack)->next == NULL)
 		return ;
 	first = *stack;
-	*stack = first->next;
+	second = first->next;
+	*stack = second;
+	second->prev = NULL;
 	ft_dlstadd_back(stack, first);
 }
 
