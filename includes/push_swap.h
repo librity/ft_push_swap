@@ -51,6 +51,7 @@ void		free_memory(void);
 \******************************************************************************/
 
 void		inspect_stacks(void);
+void		log_stacks(void);
 
 void		sa(void);
 void		sb(void);
@@ -58,6 +59,12 @@ void		ss(void);
 
 void		pa(void);
 void		pb(void);
+
+void		ra(void);
+void		rb(void);
+void		rr(void);
+
+void		execute(char *operation);
 
 /******************************************************************************\
  * ERRORS

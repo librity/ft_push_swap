@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 19:47:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:29:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,10 @@ void	inspect_stacks(void)
 {
 	inspect_a();
 	inspect_b();
+}
+
+void	log_stacks(void)
+{
+	if (VERBOSE)
+		inspect_stacks();
 }
