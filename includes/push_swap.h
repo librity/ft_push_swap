@@ -59,12 +59,11 @@ void		parse_argv(void);
 void		number_or_die(char *str);
 int			int_or_die(char *str);
 
+bool		is_sorted(void);
+
 /******************************************************************************\
  * STACKS
 \******************************************************************************/
-
-void		inspect_stacks(void);
-void		log_stacks(void);
 
 void		sa(void);
 void		sb(void);
@@ -82,6 +81,15 @@ void		rrb(void);
 void		rrr(void);
 
 void		execute(char *operation);
+
+void		inspect_stacks(void);
+void		put_sort_status(void);
+
+/******************************************************************************\
+ * LOGGERS
+\******************************************************************************/
+
+void		log_state(void);
 
 /******************************************************************************\
  * ERRORS

@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inspect.c                                          :+:      :+:    :+:   */
+/*   state.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 14:47:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/22 15:05:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	put_int(void *number)
+void	log_state(void)
 {
-	ft_printf("%s%d%s ", GB, *(int *)number, RC);
-}
-
-static void	inspect_a(void)
-{
-	ft_cyan("|A: (top) ");
-	ft_dlstiter(*a(), &put_int);
-	ft_purple("(bottom)|\n");
-}
-
-static void	inspect_b(void)
-{
-	ft_cyan("|B: (top) ");
-	ft_dlstiter(*b(), &put_int);
-	ft_purple("(bottom)|\n");
-}
-
-void	inspect_stacks(void)
-{
-	inspect_a();
-	inspect_b();
-}
-
-void	put_sort_status(void)
-{
-	ft_yellow("Is sorted: ");
-	if (is_sorted())
-		ft_greenb_endl("YES");
-	else
-		ft_redb_endl("NO");
+	if (VERBOSE)
+	{
+		inspect_stacks();
+		put_sort_status();
+		ft_endl();
+	}
 }

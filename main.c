@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 23:32:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:29:05 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	initialize(int argc, char **argv)
 {
 	initialize_control(argc, argv);
 	handle_arguments();
-	log_stacks();
+	log_state();
 }
 
 // static void	sort(void)

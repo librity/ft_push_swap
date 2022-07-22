@@ -6,29 +6,38 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 15:20:14 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/22 15:04:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-// bool	is_sorted(void)
-// {
-// 	t_dlist	*current;
-// 	t_dlist	*previous;
+static int	get_content(t_dlist *node)
+{
+	return (*(int *)(node->content));
+}
 
-// 	if (*b() != NULL)
-// 		return (false);
-// 	current = *a();
-// 	if (current->next != NULL)
-// 		return (true);
-// 	current = current->next;
-// 	while (current->next != NULL)
-// 	{
-// 		previous = current->prev;
-// 		if (stack_a->index[i] > stack_a->index[i + 1])
-// 			return (false);
-// 		current = current->next;
-// 	}
-// 	return (true);
-// }
+static int	get_next_content(t_dlist *node)
+{
+	return (*(int *)(node->next->content));
+}
+
+bool	is_sorted(void)
+{
+	t_dlist	*node;
+	int		current;
+	int		next;
+
+	if (*b() != NULL)
+		return (false);
+	node = *a();
+	while (node->next != NULL)
+	{
+		current = get_content(node);
+		next = get_next_content(node);
+		if (current > next)
+			return (false);
+		node = node->next;
+	}
+	return (true);
+}

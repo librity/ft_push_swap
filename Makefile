@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/21 23:34:22 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/22 12:58:18 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -209,14 +209,16 @@ vglog_clean: fclean
 ################################################################################
 
 norm:
+	$(MAKE_EXTERNAL) $(LIBFT_PATH) norm
+	@printf "\n$(G)=== No norminette errors found in $(LIBFT_PATH) ===$(RC)\n\n"
 	norminette $(INCLUDES_PATH)
 	@printf "\n$(G)=== No norminette errors found in $(INCLUDES_PATH) ===$(RC)\n\n"
 	norminette $(SOURCES_PATH)
 	@printf "\n$(G)=== No norminette errors found in $(SOURCES_PATH) ===$(RC)\n\n"
 	norminette $(M_MAIN)
 	@printf "\n$(G)=== No norminette errors found in $(M_MAIN) ===$(RC)\n\n"
-	norminette $(B_MAIN)
-	@printf "\n$(G)=== No norminette errors found in $(B_MAIN) ===$(RC)\n\n"
+#	 norminette $(B_MAIN)
+#	 @printf "\n$(G)=== No norminette errors found in $(B_MAIN) ===$(RC)\n\n"
 
 git:
 	git add -A

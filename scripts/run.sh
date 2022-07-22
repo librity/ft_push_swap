@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/20 20:59:15 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/22 15:05:24 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,5 +34,7 @@ make re || exit ; echo "================" ; echo ;
 # ./push_swap 1 2 3 ; echo "RETURN: $?" ; echo "================" ; echo ;
 # ./push_swap 2 1 3 ; echo "RETURN: $?" ; echo "================" ; echo ;
 ./push_swap 2 1 3 6 5 8 ; echo "RETURN: $?" ; echo "================" ; echo ;
+# ./push_swap 1 2 3 5 6 8 ; echo "RETURN: $?" ; echo "================" ; echo ;
+# ./push_swap 1 2 3 5 8 6 ; echo "RETURN: $?" ; echo "================" ; echo ;
 # ./push_swap 3 2 1 ; echo "RETURN: $?" ; echo "================" ; echo ;
 # ./push_swap 3 1 2 ; echo "RETURN: $?" ; echo "================" ; echo ;
