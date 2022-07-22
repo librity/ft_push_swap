@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/20 23:33:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/21 22:29:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,12 @@ static t_dlist	**destination(char label)
 
 static void	p_(char label)
 {
-	t_dlist	*first;
-	t_dlist	*second;
+	t_dlist	*pushed;
 
 	if (*origin(label) == NULL)
 		return ;
-	first = *origin(label);
-	second = first->next;
-	if (second != NULL)
-		second->prev = NULL;
-	*origin(label) = second;
-	ft_dlstadd_front(destination(label), first);
+	pushed = ft_dlst_pluck_first(origin(label));
+	ft_dlstadd_front(destination(label), pushed);
 }
 
 void	pa(void)

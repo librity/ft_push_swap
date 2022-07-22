@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/20 20:53:18 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/21 23:34:22 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,13 +96,13 @@ dirs: $(ARCHIVES_PATH) $(OBJECTS_PATH) \
 	$(M_OBJECT_DIRECTORIES) $(B_OBJECT_DIRECTORIES)
 
 $(ARCHIVES_PATH):
-	$(SAFE_MAKEDIR) $@ && touch "$@/.keep"
+	$(SAFE_MAKEDIR) $@ && touch "$@.keep"
 
 $(OBJECTS_PATH):
-	$(SAFE_MAKEDIR) $@ && touch "$@/.keep"
+	$(SAFE_MAKEDIR) $@ && touch "$@.keep"
 
 $(M_OBJECT_DIRECTORIES):
-	$(SAFE_MAKEDIR) $@ && touch "$@/.keep"
+	$(SAFE_MAKEDIR) $@ && touch "$@.keep"
 
 ################################################################################
 # CLEAN

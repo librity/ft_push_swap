@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory.c                                           :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 23:17:48 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/21 15:20:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	free_memory(void)
-{
-	ft_free_lalloc(&(c()->lalloc));
-}
+// bool	is_sorted(void)
+// {
+// 	t_dlist	*current;
+// 	t_dlist	*previous;
+
+// 	if (*b() != NULL)
+// 		return (false);
+// 	current = *a();
+// 	if (current->next != NULL)
+// 		return (true);
+// 	current = current->next;
+// 	while (current->next != NULL)
+// 	{
+// 		previous = current->prev;
+// 		if (stack_a->index[i] > stack_a->index[i + 1])
+// 			return (false);
+// 		current = current->next;
+// 	}
+// 	return (true);
+// }

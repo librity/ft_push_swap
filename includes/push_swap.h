@@ -26,7 +26,7 @@ typedef struct s_push_swap
 	t_dlist	*a;
 	t_dlist	*b;
 
-	t_list	*free_me;
+	t_list	*lalloc;
 }		t_push_swap;
 
 typedef void	(*t_operation_cb)(void);
@@ -40,13 +40,24 @@ void		initialize_control(int argc, char **argv);
 
 t_dlist		**a(void);
 t_dlist		**b(void);
-t_list		**free_me(void);
+t_list		**lalloc(void);
 
 int			argc(void);
 char		**argv(void);
-void		validate_arguments(void);
 
 void		free_memory(void);
+
+/******************************************************************************\
+ * STACKS
+\******************************************************************************/
+
+void		handle_arguments(void);
+
+void		validate_argc(void);
+
+void		parse_argv(void);
+void		number_or_die(char *str);
+int			int_or_die(char *str);
 
 /******************************************************************************\
  * STACKS
@@ -75,9 +86,6 @@ void		execute(char *operation);
 /******************************************************************************\
  * ERRORS
 \******************************************************************************/
-
-void		validate_argc(void);
-void		validate_argv(void);
 
 void		die(void);
 

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/19 20:54:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:17:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_dlist	**b(void)
 	return (&(c()->b));
 }
 
-t_list	**free_me(void)
+t_list	**lalloc(void)
 {
-	return (&(c()->free_me));
+	return (&(c()->lalloc));
 }
