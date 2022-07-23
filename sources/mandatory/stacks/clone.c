@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   clone.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 15:23:31 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/22 23:33:39 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/23 17:19:13 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+void	clone_stack(t_dlist **from, t_dlist **to)
 {
-	if (VERBOSE)
+	t_dlist *node;
+	int		*number;
+
+	node = *from;
+	while (node != NULL)
 	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
+		number = ft_lalloc(lalloc(), sizeof(int));
+		*number = get_int(node);
+		ft_dlst_cadd_back_lalloc(lalloc(), to, number);
+		node = node->next;
 	}
 }

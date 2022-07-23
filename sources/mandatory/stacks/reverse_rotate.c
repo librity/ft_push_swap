@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 22:26:09 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/22 22:30:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ static void	rr_(char label)
 void	rra(void)
 {
 	rr_('a');
-	ft_putendl_fd("rra", STDOUT_FILENO);
+	ft_putendl_fd(REVERSE_ROTATE_A, STDOUT_FILENO);
 }
 
 void	rrb(void)
 {
 	rr_('b');
-	ft_putendl_fd("rrb", STDOUT_FILENO);
+	ft_putendl_fd(REVERSE_ROTATE_B, STDOUT_FILENO);
 }
 
 void	rrr(void)
 {
 	rr_('a');
 	rr_('b');
-	ft_putendl_fd("rrr", STDOUT_FILENO);
+	ft_putendl_fd(REVERSE_ROTATE_A_AND_B, STDOUT_FILENO);
 }

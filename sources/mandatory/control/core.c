@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   core.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 15:23:31 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/23 18:04:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+t_push_swap	*c(void)
 {
-	if (VERBOSE)
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+	static t_push_swap	__control_instance;
+
+	return (&__control_instance);
+}
+
+void	initialize_control(int argc, char **argv)
+{
+	c()->argc = argc;
+	c()->argv = argv;
 }

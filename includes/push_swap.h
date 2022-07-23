@@ -22,6 +22,7 @@ typedef struct s_push_swap
 	char	**argv;
 
 	int		new_int;
+	int		stack_size;
 
 	t_dlist	*a;
 	t_dlist	*b;
@@ -38,17 +39,20 @@ typedef void	(*t_operation_cb)(void);
 t_push_swap	*c(void);
 void		initialize_control(int argc, char **argv);
 
+int			get_stack_size(void);
+void		set_stack_size(void);
+
 t_dlist		**a(void);
 t_dlist		**b(void);
-t_list		**lalloc(void);
 
 int			argc(void);
 char		**argv(void);
 
+t_list		**lalloc(void);
 void		free_memory(void);
 
 /******************************************************************************\
- * STACKS
+ * ARGUMENTS
 \******************************************************************************/
 
 void		handle_arguments(void);
@@ -58,8 +62,6 @@ void		validate_argc(void);
 void		parse_argv(void);
 void		number_or_die(char *str);
 int			int_or_die(char *str);
-
-bool		is_sorted(void);
 
 /******************************************************************************\
  * STACKS
@@ -84,6 +86,27 @@ void		execute(char *operation);
 
 void		inspect_stacks(void);
 void		put_sort_status(void);
+
+void		clone_stack(t_dlist **from, t_dlist **to);
+
+bool		is_sorted(void);
+
+void		set_int(t_dlist *node, int number);
+
+int			get_int(t_dlist *node);
+int			get_next_int(t_dlist *node);
+int			get_previous_int(t_dlist *node);
+
+int			get_first_of_a(void);
+
+void		normalize_stack(t_dlist *stack);
+
+/******************************************************************************\
+ * SORTERS
+\******************************************************************************/
+
+void		bubble_sort(t_dlist	*stack);
+void		radix_sort(void);
 
 /******************************************************************************\
  * LOGGERS

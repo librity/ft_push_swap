@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 14:29:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:36:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,10 @@ static void	initialize(int argc, char **argv)
 	log_state();
 }
 
-// static void	sort(void)
-// {
-// 	execute("sa");
-// 	execute("pb");
-// 	execute("pb");
-// 	execute("pb");
-// 	// execute("pb");
-// 	// execute("pb");
-// 	// execute("pb");
-// 	execute("ra");
-// 	execute("rb");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// 	execute("rr");
-// }
+
 static void	sort(void)
 {
-	execute("sa");
-	execute("pb");
-	execute("pb");
-	execute("pb");
-	execute("sa");
-	execute("pa");
-	execute("pa");
-	execute("pa");
+	radix_sort();
 }
 
 static void	cleanup(void)

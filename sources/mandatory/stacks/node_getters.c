@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   node_getters.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 15:23:31 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/23 17:07:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+int	get_int(t_dlist *node)
 {
-	if (VERBOSE)
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+	return (*(int *)(node->content));
+}
+
+int	get_next_int(t_dlist *node)
+{
+	return (*(int *)(node->next->content));
+}
+
+int	get_previous_int(t_dlist *node)
+{
+	return (*(int *)(node->prev->content));
 }

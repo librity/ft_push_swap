@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 23:32:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:39:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static void	unique_or_die(void)
 
 static void	add_to_a(void)
 {
-	int		*integer;
+	int		*integer_p;
 
-	integer = ft_lalloc(lalloc(), sizeof(int));
-	*integer = c()->new_int;
-	ft_dlst_cadd_back_lalloc(lalloc(), a(), integer);
+	integer_p = ft_lalloc(lalloc(), sizeof(int));
+	*integer_p = c()->new_int;
+	ft_dlst_cadd_back_lalloc(lalloc(), a(), integer_p);
 }
 
 void	parse_argv(void)

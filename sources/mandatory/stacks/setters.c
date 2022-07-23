@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   setters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 15:23:31 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/23 17:01:01 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/23 17:01:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+void	set_int(t_dlist *node, int number)
 {
-	if (VERBOSE)
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+	*(int *)node->content = number;
 }
