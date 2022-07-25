@@ -24,7 +24,7 @@ typedef struct s_push_swap
 	char	**argv;
 
 	int		new_int;
-	int		stack_size;
+	int		total_size;
 
 	t_dlist	*a;
 	t_dlist	*b;
@@ -47,8 +47,8 @@ void		set_verbose(bool verbose);
 int			argc(void);
 char		**argv(void);
 
-int			get_stack_size(void);
-void		set_stack_size(void);
+int			get_total_size(void);
+void		set_total_size(void);
 
 t_dlist		**a(void);
 t_dlist		**b(void);
@@ -69,7 +69,7 @@ void		number_or_die(char *str);
 int			int_or_die(char *str);
 
 /******************************************************************************\
- * STACKS
+ * OPERATIONS
 \******************************************************************************/
 
 void		sa(void);
@@ -88,6 +88,16 @@ void		rrb(void);
 void		rrr(void);
 
 void		execute(char *operation);
+
+void		push_all_to_a(void);
+void		push_all_to_b(void);
+
+/******************************************************************************\
+ * STACKS
+\******************************************************************************/
+
+int			a_size(void);
+int			b_size(void);
 
 void		inspect_stacks(void);
 void		put_sort_status(void);
@@ -111,9 +121,17 @@ bool		is_first_node(t_dlist *node);
 bool		is_middle_node(t_dlist *node);
 bool		is_last_node(t_dlist *node);
 
-int			find_biggest_int(t_dlist *node);
-t_dlist		*find_biggest_node(t_dlist *node);
-t_dlist		*find_biggest_node_in_a(void);
+int			find_max_int(t_dlist *node);
+t_dlist		*find_max_node(t_dlist *node);
+t_dlist		*find_max_node_in_a(void);
+
+int			find_min_int(t_dlist *node);
+t_dlist		*find_min_node(t_dlist *node);
+int			find_min_index(t_dlist *node);
+
+t_dlist		*find_min_node_in_a(void);
+int			find_min_index_in_a(void);
+int			find_min_int_in_a(void);
 
 /******************************************************************************\
  * SORTERS

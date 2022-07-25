@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/23 18:03:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/24 23:31:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	handle_arguments(void)
 {
 	validate_argc();
 	parse_argv();
-	set_stack_size();
+	set_total_size();
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 21:05:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/24 23:31:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	sort_by_nth_bit(int bit_index)
 	int	a_first;
 
 	j = 0;
-	while (j < get_stack_size())
+	while (j < get_total_size())
 	{
 		a_first = get_first_int_of_a();
 		if (significant_is_one(a_first, bit_index))
@@ -32,12 +32,6 @@ static void	sort_by_nth_bit(int bit_index)
 			execute("pb");
 		++j;
 	}
-}
-
-static void	push_all_to_a(void)
-{
-	while (*b())
-		execute("pa");
 }
 
 void	radix_sort(void)

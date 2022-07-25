@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   min_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:31:21 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 22:09:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	initialize(int argc, char **argv)
+t_dlist *find_min_node_in_a(void)
 {
-	initialize_control(argc, argv);
-	handle_arguments();
-	log_state();
-	normalize_a();
+	return (find_min_node(*a()));
 }
 
-static void	sort(void)
+int	find_min_index_in_a(void)
 {
-	if (is_sorted())
-		return ;
-	if (get_total_size() <= 5)
-		return (five_sort());
-	radix_sort();
+	return (find_min_index(*a()));
 }
 
-static void	cleanup(void)
+int	find_min_int_in_a(void)
 {
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	sort();
-	cleanup();
-	return (EXIT_SUCCESS);
+	return (find_min_int(*a()));
 }

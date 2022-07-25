@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:31:21 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 21:53:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	initialize(int argc, char **argv)
+int	find_max_int(t_dlist *node)
 {
-	initialize_control(argc, argv);
-	handle_arguments();
-	log_state();
-	normalize_a();
+	int	max;
+
+	max = NORMALIZE_MIN;
+	while (node != NULL)
+	{
+		if (get_int(node) > max)
+			max = get_int(node);
+		node = node->next;
+	}
+	return (max);
 }
 
-static void	sort(void)
+t_dlist	*find_max_node(t_dlist *node)
 {
-	if (is_sorted())
-		return ;
-	if (get_total_size() <= 5)
-		return (five_sort());
-	radix_sort();
+	int	max;
+
+	max = find_max_int(node);
+	while (node != NULL)
+	{
+		if (get_int(node) == max)
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
 }
 
-static void	cleanup(void)
+t_dlist	*find_max_node_in_a(void)
 {
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	sort();
-	cleanup();
-	return (EXIT_SUCCESS);
+	return (find_max_node(*a()));
 }

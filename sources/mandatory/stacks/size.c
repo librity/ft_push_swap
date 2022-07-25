@@ -1,43 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:31:21 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 23:29:37 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 23:33:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	initialize(int argc, char **argv)
+int	a_size(void)
 {
-	initialize_control(argc, argv);
-	handle_arguments();
-	log_state();
-	normalize_a();
+	return (ft_dlstsize(*a()));
 }
 
-static void	sort(void)
+int	b_size(void)
 {
-	if (is_sorted())
-		return ;
-	if (get_total_size() <= 5)
-		return (five_sort());
-	radix_sort();
-}
-
-static void	cleanup(void)
-{
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	sort();
-	cleanup();
-	return (EXIT_SUCCESS);
+	return (ft_dlstsize(*b()));
 }
