@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 22:04:34 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 22:07:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:57:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	push_all_to_a(void)
 {
 	while (*b())
-		execute("pa");
+		execute(PUSH_TO_A);
 }
 
 void	push_all_to_b(void)
 {
 	while (*a())
-		execute("pb");
+		execute(PUSH_TO_B);
 }

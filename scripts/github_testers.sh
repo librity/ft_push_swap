@@ -12,7 +12,6 @@ git clone https://github.com/laisarena/push_swap_tester tt_1
 git clone https://github.com/LeoFu9487/push_swap_tester tt_2
 git clone https://github.com/lmalki-h/push_swap_tester tt_3
 git clone https://github.com/minckim42/push_swap_tester tt_4
-chmod 777 */*.sh
 
 # RUN tt_1
 cd tt_1
@@ -21,12 +20,14 @@ cd ..
 
 # RUN tt_2
 cd tt_2
+bash basic_test.sh
 cd ..
 
 # RUN tt_3
 cd tt_3
-cd ..
+bash ./tester.sh .. 100 100
 
 # RUN tt_4
 cd tt_4
+./push_swap_tester.bash
 cd ..

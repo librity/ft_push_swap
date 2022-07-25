@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 22:09:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:57:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_dlist *find_min_node_in_a(void)
+t_dlist	*find_min_node_in_a(void)
 {
 	return (find_min_node(*a()));
 }

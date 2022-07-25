@@ -6,28 +6,39 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:53:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 13:04:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+static void	rotate_untill_min_on_top(char *rotation)
 {
 	int	min_a;
-	int	min_index;
 
 	min_a = find_min_int_in_a();
+	while (get_first_int_of_a() != min_a)
+		execute(rotation);
+}
+
+static bool	min_is_halfway_down(int min_index)
+{
+	return (min_index > a_size() / 2);
+}
+
+static void	rotate_min_to_top(void)
+{
+	int		min_index;
+	char	*rotation;
+
 	min_index = find_min_index_in_a();
-	if (min_index != 0)
-	{
-		if (min_index > a_size() / 2)
-			while (get_first_int_of_a() != min_a)
-				execute("rra");
-		else
-			while (get_first_int_of_a() != min_a)
-				execute("ra");
-	}
+	if (min_index == 0)
+		return ;
+	if (min_is_halfway_down(min_index))
+		rotation = REVERSE_ROTATE_A;
+	else
+		rotation = ROTATE_A;
+	rotate_untill_min_on_top(rotation);
 }
 
 static void	push_mins_to_b(void)
@@ -35,7 +46,7 @@ static void	push_mins_to_b(void)
 	while (a_size() > 3)
 	{
 		rotate_min_to_top();
-		execute("pb");
+		execute(PUSH_TO_B);
 	}
 }
 

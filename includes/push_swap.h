@@ -102,7 +102,8 @@ int			b_size(void);
 void		inspect_stacks(void);
 void		put_sort_status(void);
 
-void		clone_stack(t_dlist **from, t_dlist **to);
+t_dlist		*clone_stack_lalloc(t_dlist **original);
+t_dlist		*clone_stack(t_dlist **original);
 
 bool		is_sorted(void);
 

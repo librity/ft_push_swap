@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/24 22:18:22 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/25 00:45:54 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ make re || exit
 ################################################################################
 
 # bad_stacks_banner
+
 # run_ps "2 one 3"
 # run_ps "2 1.1 3"
 # run_ps "2 1 -3.2"
@@ -116,6 +117,9 @@ make re || exit
 # run_ps "2 2 3"
 # run_ps "1 2 2 3"
 # run_ps "3 2 1 3"
+# run_ps "999999999999999999999999999999999999999999999999999999999999"
+# run_ps "1 2 3 456	42	13	4684 -99999999999999999999999999999999999999999999999999999999999"
+# run_ps "-50	- "
 
 ################################################################################
 # EMPTY STACK
@@ -128,7 +132,8 @@ make re || exit
 # GOOD STACKS
 ################################################################################
 
-good_stacks_banner
+# good_stacks_banner
+
 # run_ps_with_checker "1"
 
 # run_ps_with_checker "1 2"
@@ -137,6 +142,7 @@ good_stacks_banner
 # run_ps_with_checker "2 +2147483647 3"
 # run_ps_with_checker "2 2147483647 3"
 # run_ps_with_checker "2 -2147483648 3"
+run_ps_with_checker "-2147483648 2147483647 -2147483647"
 # run_ps_with_checker "1 2 3"
 # run_ps_with_checker "2 1 3"
 # run_ps_with_checker "5 0 2"
@@ -145,10 +151,11 @@ good_stacks_banner
 # run_ps_with_checker "3 2 1"
 # run_ps_with_checker "3 1 2"
 
-run_ps_with_checker "1 5 2 4 3"
-run_ps_with_checker "9680 577 2599 743 4127"
+# run_ps_with_checker "1 5 2 4 3"
+# run_ps_with_checker "9680 577 2599 743 4127"
+run_ps_with_checker "-2147483647 2147483647 -2147483648 0 9487 "
 
-run_ps_with_checker "2 1 3 6 5 8"
+# run_ps_with_checker "2 1 3 6 5 8"
 # run_ps_with_checker "2 1 3 6 5 10 8"
 # run_ps_with_checker "1 2 3 5 6 8"
 # run_ps_with_checker "1 2 3 5 8 6"
