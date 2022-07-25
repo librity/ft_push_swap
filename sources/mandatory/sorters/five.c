@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   five.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 16:43:50 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 21:15:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+void	five_sort(void)
 {
-	if (verbose())
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+
 }

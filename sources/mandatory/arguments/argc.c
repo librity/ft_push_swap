@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/21 23:09:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:33:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	validate_argc(void)
 {
 	if (argc() > 1)
 		return ;
-	die();
+	exit(EXIT_SUCCESS);
 }

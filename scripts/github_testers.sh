@@ -1,0 +1,32 @@
+# CLONE AND BUILD PROJECT
+cd ~
+git clone --recurse-submodule https://github.com/librity/ft_push_swap
+# git clone 42_INTRA_REPO_ADDRESS ft_push_swap
+cd ft_push_swap
+# norminette
+make norm
+make re
+
+# CLONE ALL GITHUB TESTERS
+git clone https://github.com/laisarena/push_swap_tester tt_1
+git clone https://github.com/LeoFu9487/push_swap_tester tt_2
+git clone https://github.com/lmalki-h/push_swap_tester tt_3
+git clone https://github.com/minckim42/push_swap_tester tt_4
+chmod 777 */*.sh
+
+# RUN tt_1
+cd tt_1
+cp ../push_swap . && bash tester.sh
+cd ..
+
+# RUN tt_2
+cd tt_2
+cd ..
+
+# RUN tt_3
+cd tt_3
+cd ..
+
+# RUN tt_4
+cd tt_4
+cd ..

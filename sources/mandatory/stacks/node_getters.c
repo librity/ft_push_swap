@@ -6,23 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/23 17:07:14 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:07:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	get_int(t_dlist *node)
+t_dlist	*get_first_node_of_a(void)
 {
-	return (*(int *)(node->content));
-}
-
-int	get_next_int(t_dlist *node)
-{
-	return (*(int *)(node->next->content));
-}
-
-int	get_previous_int(t_dlist *node)
-{
-	return (*(int *)(node->prev->content));
+	return (*a());
 }

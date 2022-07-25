@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   two.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 16:43:50 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 21:11:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 21:12:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+void	two_sort(void)
 {
-	if (verbose())
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+	t_dlist	*first;
+	t_dlist	*second;
+
+	first = get_first_node_of_a();
+	second = first->next;
+	if (get_int(first) > get_int(second))
+		execute("sa");
 }

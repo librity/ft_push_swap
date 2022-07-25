@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   int_getters.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 16:43:50 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 21:06:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	log_state(void)
+int	get_int(t_dlist *node)
 {
-	if (verbose())
-	{
-		inspect_stacks();
-		put_sort_status();
-		ft_endl();
-	}
+	return (*(int *)(node->content));
+}
+
+int	get_next_int(t_dlist *node)
+{
+	return (*(int *)(node->next->content));
+}
+
+int	get_previous_int(t_dlist *node)
+{
+	return (*(int *)(node->prev->content));
+}
+
+int	get_first_int_of_a(void)
+{
+	return (get_int(*a()));
 }

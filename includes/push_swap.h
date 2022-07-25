@@ -18,6 +18,8 @@
 
 typedef struct s_push_swap
 {
+	bool	verbose;
+
 	int		argc;
 	char	**argv;
 
@@ -39,14 +41,17 @@ typedef void	(*t_operation_cb)(void);
 t_push_swap	*c(void);
 void		initialize_control(int argc, char **argv);
 
+bool		verbose(void);
+void		set_verbose(bool verbose);
+
+int			argc(void);
+char		**argv(void);
+
 int			get_stack_size(void);
 void		set_stack_size(void);
 
 t_dlist		**a(void);
 t_dlist		**b(void);
-
-int			argc(void);
-char		**argv(void);
 
 t_list		**lalloc(void);
 void		free_memory(void);
@@ -96,16 +101,30 @@ void		set_int(t_dlist *node, int number);
 int			get_int(t_dlist *node);
 int			get_next_int(t_dlist *node);
 int			get_previous_int(t_dlist *node);
+int			get_first_int_of_a(void);
 
-int			get_first_of_a(void);
+t_dlist		*get_first_node_of_a(void);
 
-void		normalize_stack(t_dlist *stack);
+void		normalize_a(void);
+
+bool		is_first_node(t_dlist *node);
+bool		is_middle_node(t_dlist *node);
+bool		is_last_node(t_dlist *node);
+
+int			find_biggest_int(t_dlist *node);
+t_dlist		*find_biggest_node(t_dlist *node);
+t_dlist		*find_biggest_node_in_a(void);
 
 /******************************************************************************\
  * SORTERS
 \******************************************************************************/
 
 void		bubble_sort(t_dlist	*stack);
+
+void		two_sort(void);
+void		three_sort(void);
+void		five_sort(void);
+
 void		radix_sort(void);
 
 /******************************************************************************\

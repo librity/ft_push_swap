@@ -6,14 +6,12 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/23 17:40:43 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:20:34 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
-
-# define VERBOSE 0
 
 /******************************************************************************\
  * STACKS
@@ -36,6 +34,9 @@
 # define REVERSE_ROTATE_A "rra"
 # define REVERSE_ROTATE_B "rrb"
 # define REVERSE_ROTATE_A_AND_B "rrr"
+
+# define NORMALIZE_MESSAGE "NORMALIZED STACK"
+# define NORMALIZE_MIN 0
 
 /******************************************************************************\
  * ERRORS

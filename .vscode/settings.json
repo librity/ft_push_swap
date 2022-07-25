@@ -36,6 +36,9 @@
     "push_swap_bonus.h": "c",
     "stdio.h": "c",
     "libft.h": "c",
-    "random": "c"
+    "random": "c",
+    "initializer_list": "c",
+    "utility": "c",
+    "chrono": "c"
   }
 }
