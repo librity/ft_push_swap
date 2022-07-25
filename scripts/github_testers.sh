@@ -12,6 +12,8 @@ git clone https://github.com/laisarena/push_swap_tester tt_1
 git clone https://github.com/LeoFu9487/push_swap_tester tt_2
 git clone https://github.com/lmalki-h/push_swap_tester tt_3
 git clone https://github.com/minckim42/push_swap_tester tt_4
+wget 'https://raw.githubusercontent.com/wwwwelton/push_swap/master/tester.sh' -O vbrazhni.sh && chmod +x vbrazhni.sh
+wget 'https://raw.githubusercontent.com/VBrazhnik/Push_swap/master/benchmark.sh' -O wleite.sh && chmod +x wleite.sh
 
 # RUN tt_1
 cd tt_1

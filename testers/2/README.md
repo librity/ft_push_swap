@@ -1,87 +1,61 @@
-# push_swap_tester
+# A tester for Push_swap@42 - To see what's going on
+This tester shows the performance of your push_swap program. 
 
-### Usage
+This tester *DOES NOT* check that your checker works correctly.
 
-First, go to the root of your repository, which is where we can find your Makefile and do
-
-```git clone https://github.com/LeoFu9487/push_swap_tester.git && cd push_swap_tester```
-
-
-
-
-To see if you pass the parsing test (ERROR_TEST), identity test, and small stack test (size 3 and 5), run
-
-```bash basic_test.sh```
+* [What's push_swap tester?](#whats-push_swap_tester)
+* [How do I run this tester?](#how-do-I-run-this-tester)
+* [Contribution](#contribution)
 
 
+## What's push_swap_tester?
 
-If you want to see the test cases, check ```trace_basic```
+Push_swap_tester is a little tester that shows you how your push_swap performs.
+It displays the number of instructions performed by your push_swap in color, here is what the colors mean:
+```diff
+# white means amazing!
+@@ blue means good @@
++ green means ok
+! orange means really bad
+- red means eliminatory
+```
+
+![Screenshot](screenshot.png)
 
 
-After that, you can do medium and big stack test with this command
+## How do I run this tester?
 
-```bash loop.sh <stack size> <loop times>```
+```bash
+git clone https://github.com/lmalki-h/push_swap_tester
+bash push_swap_tester/tester.sh [path-to-push-swap-dir] [stack-size 0R range] [nb_of_tests]
+```
+### for example:
+the following command will perform 100 testss with a stack of 100 integers
+```bash
+bash push_swap_tester/tester.sh ../push_swap 100 100
+```
+   
+the following command will perform 100 tests with a stack of 100 integers, then 100 tests with a stack of 101 integers and then 100 tests with a stack of 102 integers
+```bash
+bash push_swap_tester/tester.sh ../push_swap 100-102 100
+```
 
-For example, this is the result of the following command
+## Commands
 
-```bash loop.sh 100 10```
+```
+USAGE
+./push_swap_tester.sh [directory-to-push_swap] [stacksize 0R range] [nb_of_test] {options}
 
-![example](https://user-images.githubusercontent.com/70040774/118051305-0b7fa580-b381-11eb-9568-36b44748b10f.png)
+OPTIONS
+  --show-arg    Display arguments after the number of instructions.
+  --quiet       Don't display arguments if the tester catch an error.
+  --retry       Retry with same arguments during the last run or the specified run with --retry=[NUM].
+  --score       Show the score of the current entries, useful to compare output of two differents push_swap algo.
+  --bench       Use with --score, save the score in push_swap_benchmark.log, if is a new record or a new entries.
+                Use --rewrite-bench to erase saved score by the current score.
+  --show-index  Display sorted index of each arguments, the index is the offset position when the list is sorted.
+  --help/-h     Show this message.
+```
 
-And you can find those generated test cases and the output of your program in ```trace_loop```
-
-### Debug
-
-To visualize how your program sorts numbers
-
-```bash debug.sh <numbers>```
-
-This is the result of the following command
-
-```bash debug.sh 9 4 8 7```
-
-![debugsh](https://user-images.githubusercontent.com/70040774/119276699-d6464380-bc1b-11eb-8c03-fe01a11b494f.png)
-
-To generate random numbers and visualize how your program sorts them, run  
-
-```bash debug.sh random <stack size>```
-
-This is the result of the following command
-
-```bash debug.sh random 10```
-
-![example2](https://user-images.githubusercontent.com/70040774/118052309-cceaea80-b382-11eb-8c9d-39675e9143ba.png)
-
-To generate a permutation of numbers from 0 to n-1
-
-```bash debug.sh clean <stack size>```
-
-this is the result of the following command
-
-```bash debug.sh clean 10```
-
-![example3](https://user-images.githubusercontent.com/70040774/118052350-daa07000-b382-11eb-95e4-c8715f70cc05.png)
-
-### Result 
-
-OK : Answer Correct
-
-KO : Wrong Answer
-
-TLE : Time Limit Exceeded, please check if there is an infinite loop in your program (or you can edit the variable ```TIME_LIMIT``` in *.sh file)
-
-ERROR : Unknown Instructions
-
-leaks command not found : can't test your memory with command ```leaks``` (If you're using MacOS but still receiving this, remove ```-fsanitize=address``` flag in your Makefile )
-
-### Clean
-
-```bash clean.sh```
-
-can remove every test case and output file
-
-### Contact : 
-
-yfu@student.42lyon.fr
-
-or DM me on the slack
+## Contribution
+If you noticed something wrong with the code or if you'd like to see a new feature, you can submit an issue. If you'd like to contribute please submit a pull request :) 
