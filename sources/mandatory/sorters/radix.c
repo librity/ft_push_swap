@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 12:58:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:11:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	sort_by_nth_bit(int bit_index)
 	j = 0;
 	while (j < get_total_size())
 	{
-		a_first = get_first_int_of_a();
+		a_first = first_int_of_a();
 		if (significant_is_one(a_first, bit_index))
 			execute(ROTATE_A);
 		else

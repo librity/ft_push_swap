@@ -6,32 +6,36 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 22:27:50 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:12:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	bubble_sort(t_dlist	*stack)
+static void	push_smallest_to_b(void)
 {
-	t_dlist	*i;
-	t_dlist	*j;
-	int		auxiliary;
+	t_dlist	*first;
+	t_dlist	*second;
 
-	i = stack;
-	while (i != NULL)
+	while (first_of_a()->next != NULL)
 	{
-		j = i->next;
-		while (j != NULL)
+		first = first_of_a();
+		second = first->next;
+		if (get_int(first) < get_int(second))
 		{
-			if (get_int(i) > get_int(j))
-			{
-				auxiliary = get_int(i);
-				set_int(i, get_int(j));
-				set_int(j, auxiliary);
-			}
-			j = j->next;
+			execute(PUSH_TO_B);
+			continue ;
 		}
-		i = i->next;
+		execute(SWAP_A);
+		execute(PUSH_TO_B);
+	}
+}
+
+void	bubble_sort(void)
+{
+	while (!is_sorted())
+	{
+		push_smallest_to_b();
+		push_all_to_a();
 	}
 }

@@ -112,9 +112,9 @@ void		set_int(t_dlist *node, int number);
 int			get_int(t_dlist *node);
 int			get_next_int(t_dlist *node);
 int			get_previous_int(t_dlist *node);
-int			get_first_int_of_a(void);
+int			first_int_of_a(void);
 
-t_dlist		*get_first_node_of_a(void);
+t_dlist		*first_of_a(void);
 
 void		normalize_a(void);
 
@@ -138,13 +138,14 @@ int			find_min_int_in_a(void);
  * SORTERS
 \******************************************************************************/
 
-void		bubble_sort(t_dlist	*stack);
-
 void		two_sort(void);
 void		three_sort(void);
 void		five_sort(void);
 
+void		free_bubble_sort(t_dlist *stack);
+void		bubble_sort(void);
 void		radix_sort(void);
+void		quick_sort(void);
 
 /******************************************************************************\
  * LOGGERS

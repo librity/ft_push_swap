@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   two.c                                              :+:      :+:    :+:   */
+/*   free_bubble.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 21:11:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 19:11:08 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/25 17:54:47 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	two_sort(void)
+void	free_bubble_sort(t_dlist *stack)
 {
-	t_dlist	*first;
-	t_dlist	*second;
+	t_dlist	*i;
+	t_dlist	*j;
+	int		auxiliary;
 
-	first = first_of_a();
-	second = first->next;
-	if (get_int(first) > get_int(second))
-		execute(SWAP_A);
+	i = stack;
+	while (i != NULL)
+	{
+		j = i->next;
+		while (j != NULL)
+		{
+			if (get_int(i) > get_int(j))
+			{
+				auxiliary = get_int(i);
+				set_int(i, get_int(j));
+				set_int(j, auxiliary);
+			}
+			j = j->next;
+		}
+		i = i->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 21:06:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:11:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	get_previous_int(t_dlist *node)
 	return (*(int *)(node->prev->content));
 }
 
-int	get_first_int_of_a(void)
+int	first_int_of_a(void)
 {
 	return (get_int(*a()));
 }
