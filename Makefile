@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/24 16:24:19 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/24 23:42:54 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -187,6 +187,8 @@ VG_LOG_FLAGS = --log-file=$(VG_LOG) \
 # VG_TARGET = ./$(NAME) 2 +2147483648 3
 # VG_TARGET = ./$(NAME) 1 2 2 3
 # VG_TARGET = ./$(NAME) 3 2 1 3
+
+# VG_TARGET = ./$(NAME)
 # VG_TARGET = ./$(NAME) 2 1 3 6 5 8
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..1).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..2).to_a.shuffle.join(' ')")
@@ -197,10 +199,10 @@ VG_LOG_FLAGS = --log-file=$(VG_LOG) \
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..7).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..8).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..9).to_a.shuffle.join(' ')")
-VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..10).to_a.shuffle.join(' ')")
+# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..10).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..11).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..20).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..50).to_a.shuffle.join(' ')")
+VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..50).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..100).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..500).to_a.shuffle.join(' ')")
 # VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..1000).to_a.shuffle.join(' ')")
