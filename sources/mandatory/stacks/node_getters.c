@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 19:11:13 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:44:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,9 @@
 t_dlist	*first_of_a(void)
 {
 	return (*a());
+}
+
+t_dlist	*first_of_b(void)
+{
+	return (*b());
 }

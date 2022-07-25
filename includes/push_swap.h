@@ -115,6 +115,7 @@ int			get_previous_int(t_dlist *node);
 int			first_int_of_a(void);
 
 t_dlist		*first_of_a(void);
+t_dlist		*first_of_b(void);
 
 void		normalize_a(void);
 
@@ -137,6 +138,8 @@ int			find_min_int_in_a(void);
 /******************************************************************************\
  * SORTERS
 \******************************************************************************/
+
+void		random_sort(void);
 
 void		two_sort(void);
 void		three_sort(void);
