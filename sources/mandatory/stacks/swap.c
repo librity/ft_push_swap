@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_getters.c                                      :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/26 15:38:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 00:51:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	get_int(t_dlist *node)
+void	swap_ints(t_dlist *i_node, t_dlist *j_node)
 {
-	return (*(int *)(node->content));
+	int	aux;
+
+	aux = get_int(i_node);
+	set_int(i_node, get_int(j_node));
+	set_int(j_node, aux);
 }
 
-int	get_next_int(t_dlist *node)
+void	swap_ints_by_index(t_dlist **stack, int i_index, int j_index)
 {
-	return (*(int *)(node->next->content));
-}
+	t_dlist	*i_node;
+	t_dlist	*j_node;
 
-int	get_previous_int(t_dlist *node)
-{
-	return (*(int *)(node->prev->content));
+	i_node = ft_dlst_get_safe(stack, i_index);
+	j_node = ft_dlst_get_safe(stack, j_index);
+	swap_ints(i_node, j_node);
 }

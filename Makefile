@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/25 14:48:50 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/26 21:09:42 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CC_STRICT = $(CC) \
 	$(CCF_STRICT)
 
 CC_FULL = $(CC_STRICT) \
-	$(CCF_OPTIMIZATION) \
 	$(CCF_DEBUG)
+#	$(CCF_OPTIMIZATION) \
 
 CCF_INCLUDES = -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
 CCF_STRICT = -Wall -Wextra -Werror

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 20:36:13 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 00:52:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ static void	initialize(int argc, char **argv)
 
 static void	sort(void)
 {
-	if (is_sorted())
-		return ;
-	if (get_total_size() <= 5)
-		return (five_sort());
-	radix_sort();
+	// if (is_sorted())
+	// 	return ;
+	// if (get_total_size() <= 5)
+	// 	return (five_sort());
+	// radix_sort();
 	// quick_sort();
+	// free_quick_sort_a();
+	free_bubble_sort_a();
 }
 
 static void	cleanup(void)

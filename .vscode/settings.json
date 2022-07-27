@@ -39,6 +39,9 @@
     "random": "c",
     "initializer_list": "c",
     "utility": "c",
-    "chrono": "c"
+    "chrono": "c",
+    "internals.h": "c",
+    "cstdarg": "c",
+    "cmath": "c"
   }
 }
