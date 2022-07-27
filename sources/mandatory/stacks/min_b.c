@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.c                                             :+:      :+:    :+:   */
+/*   min_b.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:19:09 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 14:45:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_push_swap	*c(void)
+t_dlist	*find_min_node_in_b(void)
 {
-	static t_push_swap	__control_instance;
-
-	return (&__control_instance);
+	return (find_min_node(b()));
 }
 
-void	initialize_control(int argc, char **argv)
+int	find_min_index_in_b(void)
 {
-	// c()->verbose = false;
-	c()->verbose = true;
-	c()->argc = argc;
-	c()->argv = argv;
+	return (find_min_index(b()));
+}
+
+int	find_min_int_in_b(void)
+{
+	return (find_min_int(b()));
 }

@@ -93,6 +93,9 @@ void		execute_n_times(char *operation, int n);
 void		push_all_to_a(void);
 void		push_all_to_b(void);
 
+void		rotate_to_top_of_a(int index);
+void		rotate_to_top_of_b(int index);
+
 /******************************************************************************\
  * STACKS
 \******************************************************************************/
@@ -120,10 +123,14 @@ int			get_b_int_by_index(int index);
 int			first_int_of_a(void);
 int			first_int_of_b(void);
 
-t_dlist		*first_of_a(void);
-t_dlist		*first_of_b(void);
 t_dlist		*a_get_node(int index);
 t_dlist		*b_get_node(int index);
+
+t_dlist		*first_of_a(void);
+t_dlist		*first_of_b(void);
+
+t_dlist		*last_of_a(void);
+t_dlist		*last_of_b(void);
 
 void		normalize_a(void);
 
@@ -131,17 +138,29 @@ bool		is_first_node(t_dlist *node);
 bool		is_middle_node(t_dlist *node);
 bool		is_last_node(t_dlist *node);
 
-int			find_max_int(t_dlist *node);
-t_dlist		*find_max_node(t_dlist *node);
-t_dlist		*find_max_node_in_a(void);
+int			find_max_int(t_dlist **stack);
+t_dlist		*find_max_node(t_dlist **stack);
+int			find_max_index(t_dlist **stack);
 
-int			find_min_int(t_dlist *node);
-t_dlist		*find_min_node(t_dlist *node);
-int			find_min_index(t_dlist *node);
+t_dlist		*find_max_node_in_a(void);
+int			find_max_index_in_a(void);
+int			find_max_int_in_a(void);
+
+t_dlist		*find_max_node_in_b(void);
+int			find_max_index_in_b(void);
+int			find_max_int_in_b(void);
+
+int			find_min_int(t_dlist **stack);
+t_dlist		*find_min_node(t_dlist **stack);
+int			find_min_index(t_dlist **stack);
 
 t_dlist		*find_min_node_in_a(void);
 int			find_min_index_in_a(void);
 int			find_min_int_in_a(void);
+
+t_dlist		*find_min_node_in_b(void);
+int			find_min_index_in_b(void);
+int			find_min_int_in_b(void);
 
 void		swap_ints(t_dlist *i_node, t_dlist *j_node);
 void		swap_ints_by_index(t_dlist **stack, int i_index, int j_index);
@@ -152,20 +171,23 @@ void		swap_ints_by_index(t_dlist **stack, int i_index, int j_index);
 
 void		random_sort(void);
 
-void		two_sort(void);
-void		three_sort(void);
-void		five_sort(void);
-
 void		free_bubble_sort(t_dlist **stack);
 void		free_bubble_sort_a(void);
 void		bubble_sort(void);
 
-void		radix_sort(void);
-
 void		free_quick_sort(t_dlist **stack, int start, int end);
+void		free_quick_sort_stack(t_dlist **stack);
 void		free_quick_sort_a(void);
 void		quick_sort(t_dlist **stack, int start, int end);
 void		quick_sort_a(void);
+
+void		two_sort(void);
+void		three_sort(void);
+void		five_sort(void);
+
+void		radix_sort(void);
+
+void		chunked_insertion_sort(void);
 
 /******************************************************************************\
  * LOGGERS

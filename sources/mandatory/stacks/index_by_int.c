@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.c                                             :+:      :+:    :+:   */
+/*   int_by_index.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:19:09 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/26 16:09:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_push_swap	*c(void)
+int	get_int_by_index(t_dlist **stack, int index)
 {
-	static t_push_swap	__control_instance;
-
-	return (&__control_instance);
+	return (get_int(ft_dlst_get_safe(stack, index)));
 }
 
-void	initialize_control(int argc, char **argv)
+int	get_a_int_by_index(int index)
 {
-	// c()->verbose = false;
-	c()->verbose = true;
-	c()->argc = argc;
-	c()->argv = argv;
+	return (get_int_by_index(a(), index));
+}
+
+int	get_b_int_by_index(int index)
+{
+	return (get_int_by_index(b(), index));
+}
+
+int	first_int_of_a(void)
+{
+	return (get_int(*a()));
+}
+
+int	first_int_of_b(void)
+{
+	return (get_int(*b()));
 }

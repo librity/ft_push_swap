@@ -6,17 +6,19 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 21:53:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:49:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	find_max_int(t_dlist *node)
+int	find_max_int(t_dlist **stack)
 {
-	int	max;
+	t_dlist	*node;
+	int		max;
 
 	max = NORMALIZE_MIN;
+	node = *stack;
 	while (node != NULL)
 	{
 		if (get_int(node) > max)
@@ -26,11 +28,13 @@ int	find_max_int(t_dlist *node)
 	return (max);
 }
 
-t_dlist	*find_max_node(t_dlist *node)
+t_dlist	*find_max_node(t_dlist **stack)
 {
-	int	max;
+	t_dlist	*node;
+	int		max;
 
-	max = find_max_int(node);
+	max = find_max_int(stack);
+	node = *stack;
 	while (node != NULL)
 	{
 		if (get_int(node) == max)
@@ -40,7 +44,17 @@ t_dlist	*find_max_node(t_dlist *node)
 	return (NULL);
 }
 
-t_dlist	*find_max_node_in_a(void)
+int	find_max_index(t_dlist **stack)
 {
-	return (find_max_node(*a()));
+	t_dlist	*node;
+	int		index;
+
+	index = 0;
+	node = find_max_node(stack);
+	while (node != NULL)
+	{
+		node = node->prev;
+		index++;
+	}
+	return (index);
 }

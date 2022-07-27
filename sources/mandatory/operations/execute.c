@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:10:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:23:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	execute_n_times(char *operation, int n)
 {
 	if (n <= 0)
 		return ;
-	while (n)
+	while (n > 0)
 	{
 		execute(operation);
 		n--;

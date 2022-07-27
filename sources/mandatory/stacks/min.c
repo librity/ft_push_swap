@@ -6,17 +6,19 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:24:34 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:48:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	find_min_int(t_dlist *node)
+int	find_min_int(t_dlist **stack)
 {
-	int	min;
+	t_dlist	*node;
+	int		min;
 
-	min = find_max_int(node);
+	min = find_max_int(stack);
+	node = *stack;
 	while (node != NULL)
 	{
 		if (get_int(node) < min)
@@ -26,11 +28,13 @@ int	find_min_int(t_dlist *node)
 	return (min);
 }
 
-t_dlist	*find_min_node(t_dlist *node)
+t_dlist	*find_min_node(t_dlist **stack)
 {
-	int	min;
+	t_dlist	*node;
+	int		min;
 
-	min = find_min_int(node);
+	min = find_min_int(stack);
+	node = *stack;
 	while (node != NULL)
 	{
 		if (get_int(node) == min)
@@ -40,11 +44,12 @@ t_dlist	*find_min_node(t_dlist *node)
 	return (NULL);
 }
 
-int	find_min_index(t_dlist *node)
+int	find_min_index(t_dlist **stack)
 {
-	int	index;
+	t_dlist	*node;
+	int		index;
 
-	node = find_min_node(node);
+	node = find_min_node(stack);
 	index = 0;
 	while (node != NULL)
 	{

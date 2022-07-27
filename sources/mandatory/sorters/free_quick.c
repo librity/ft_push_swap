@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 01:05:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:43:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,13 @@ void	free_quick_sort(t_dlist **stack, int start, int end)
 	free_quick_sort(stack, division_index + 1, end);
 }
 
+void	free_quick_sort_stack(t_dlist **stack)
+{
+	free_quick_sort(stack, 0, ft_dlstsize(*stack) - 1);
+}
+
 void	free_quick_sort_a(void)
 {
-	free_quick_sort(a(), 0, a_size() - 1);
+	free_quick_sort_stack(a());
 	log_state();
 }
