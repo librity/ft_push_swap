@@ -187,13 +187,14 @@ void		five_sort(void);
 
 void		radix_sort(void);
 
-void		chunked_insertion_sort(void);
+void		chunked_insertion_sort(int chunk_size);
 
 /******************************************************************************\
  * LOGGERS
 \******************************************************************************/
 
 void		log_state(void);
+void		log_normalized(void);
 
 /******************************************************************************\
  * ERRORS

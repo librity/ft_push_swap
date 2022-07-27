@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state.c                                            :+:      :+:    :+:   */
+/*   core.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 16:43:50 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:54:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,11 @@ void	log_state(void)
 		put_sort_status();
 		ft_endl();
 	}
+}
+
+void	log_normalized(void)
+{
+	if (verbose())
+		ft_blueb_endl(NORMALIZE_MESSAGE);
+	log_state();
 }

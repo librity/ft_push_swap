@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 14:49:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:30:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ int	find_max_index(t_dlist **stack)
 
 	index = 0;
 	node = find_max_node(stack);
-	while (node != NULL)
+	if (node == NULL)
+		return (DLIST_BAD_INDEX_CODE);
+	while (node->prev != NULL)
 	{
 		node = node->prev;
 		index++;

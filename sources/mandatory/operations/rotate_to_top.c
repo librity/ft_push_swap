@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:50:40 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 17:52:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:15:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ static void	rotate_to_top(char label, int index)
 	rr = resolve_rr(label);
 	r_moves = index;
 	rr_moves = ft_dlstsize(*stack) - index;
-	ft_debug("r_moves = %d", r_moves);
-	ft_debug("rr_moves = %d", rr_moves);
 	if (rr_moves >= r_moves)
 		return (execute_n_times(r, r_moves));
 	execute_n_times(rr, rr_moves);

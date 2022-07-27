@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 17:14:25 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 14:57:32 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:53:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,5 @@ static void	normalize_stack(t_dlist **stack)
 void	normalize_a(void)
 {
 	normalize_stack(a());
-	if (verbose())
-		ft_blueb_endl(NORMALIZE_MESSAGE);
-	log_state();
+	log_normalized();
 }
