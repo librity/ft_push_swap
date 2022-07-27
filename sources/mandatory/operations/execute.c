@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/22 14:29:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:10:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ void	execute(char *operation)
 	callbalk = resolve_callback_or_die(operation);
 	callbalk();
 	log_state();
+}
+
+void	execute_n_times(char *operation, int n)
+{
+	if (n <= 0)
+		return ;
+	while (n)
+	{
+		execute(operation);
+		n--;
+	}
 }

@@ -42,6 +42,7 @@
     "chrono": "c",
     "internals.h": "c",
     "cstdarg": "c",
-    "cmath": "c"
+    "cmath": "c",
+    "ratio": "c"
   }
 }

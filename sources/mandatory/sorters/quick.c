@@ -6,58 +6,84 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/26 15:39:30 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:13:26 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-// static bool	smaller_than_pivot_in_stack(t_dlist *node, int pivot_int)
-// {
-// 	while (node)
-// 	{
-// 		if (get_int(node) < pivot_int)
-// 			return (true);
-// 		node = node->next;
-// 	}
-// 	return (false);
-// }
+static void	swap_push_and_restore(int first_rotations, int second_rotations)
+{
+	execute(PUSH_TO_B);
+	execute(SWAP_B);
+	execute(PUSH_TO_A);
+	execute_n_times(REVERSE_ROTATE_A, second_rotations);
+	execute(PUSH_TO_A);
+	execute_n_times(REVERSE_ROTATE_A, first_rotations);
+}
 
-// static int	division(int *array, int start, int end)
-// {
-// 	int	pivot;
-// 	int	i;
-// 	int	temp;
-// 	int	j;
+static void	swap_with_operations(int i_index, int j_index)
+{
+	t_dlist	*i_target;
+	t_dlist	*j_target;
+	int		first_rotations;
+	int		second_rotations;
 
-// 	pivot = array[end];
-// 	i = start - 1;
-// 	j = start;
-// 	while (j < end)
-// 	{
-// 		if (array[j] <= pivot)
-// 		{
-// 			i++;
-// 			temp = array[i];
-// 			array[i] = array[j];
-// 			array[j] = temp;
-// 		}
-// 		j++;
-// 	}
-// 	temp = array[i + 1];
-// 	array[i + 1] = array[end];
-// 	array[end] = temp;
-// 	return (i + 1);
-// }
+	first_rotations = 0;
+	second_rotations = 0;
+	i_target = a_get_node(i_index);
+	j_target = a_get_node(j_index);
+	while (first_of_a() != i_target)
+	{
+		execute(ROTATE_A);
+		first_rotations++;
+	}
+	execute(PUSH_TO_B);
+	while (first_of_a() != j_target)
+	{
+		execute(ROTATE_A);
+		second_rotations++;
+	}
+	swap_push_and_restore(first_rotations, second_rotations);
+}
 
-// void	quick_sort(int *array, int start, int end)
-// {
-// 	int	q;
+static int	partition(t_dlist **stack, int start, int end)
+{
+	int	pivot;
+	int	i;
+	int	j;
 
-// 	if (start < end)
-// 	{
-// 		q = division(array, start, end);
-// 		quick_sort(array, start, q - 1);
-// 		quick_sort(array, q + 1, end);
-// 	}
-// }
+	pivot = get_int_by_index(stack, (start + end) / 2);
+	i = start;
+	j = end;
+	while (true)
+	{
+		while (get_int_by_index(stack, i) < pivot)
+			i++;
+		while (get_int_by_index(stack, j) > pivot)
+			j--;
+		if (i >= j)
+			return (j);
+		swap_with_operations(i, j);
+	}
+}
+
+void	quick_sort(t_dlist **stack, int start, int end)
+{
+	int	division_index;
+
+	if (start < 0)
+		return ;
+	if (end < 0)
+		return ;
+	if (start >= end)
+		return ;
+	division_index = partition(stack, start, end);
+	quick_sort(stack, start, division_index);
+	quick_sort(stack, division_index + 1, end);
+}
+
+void	quick_sort_a(void)
+{
+	quick_sort(a(), 0, a_size() - 1);
+}

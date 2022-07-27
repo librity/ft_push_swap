@@ -88,6 +88,7 @@ void		rrb(void);
 void		rrr(void);
 
 void		execute(char *operation);
+void		execute_n_times(char *operation, int n);
 
 void		push_all_to_a(void);
 void		push_all_to_b(void);
@@ -121,6 +122,8 @@ int			first_int_of_b(void);
 
 t_dlist		*first_of_a(void);
 t_dlist		*first_of_b(void);
+t_dlist		*a_get_node(int index);
+t_dlist		*b_get_node(int index);
 
 void		normalize_a(void);
 
@@ -161,7 +164,8 @@ void		radix_sort(void);
 
 void		free_quick_sort(t_dlist **stack, int start, int end);
 void		free_quick_sort_a(void);
-void		quick_sort(void);
+void		quick_sort(t_dlist **stack, int start, int end);
+void		quick_sort_a(void);
 
 /******************************************************************************\
  * LOGGERS
