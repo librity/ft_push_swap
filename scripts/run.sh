@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/27 19:06:55 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/27 20:53:33 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,10 +65,45 @@ good_stacks_banner() {
 	separator
 }
 
+hundred_stack_banner() {
+	echo -e """${YB}
+	HUNDRED-STACK BENCHMARK
+
+	==========================
+	| OPERATIONS     | GRADE |
+	==========================
+	| less than 700  |   5   |
+	| less than 900  |   4   |
+	| less than 1100 |   3   |
+	| less than 1300 |   2   |
+	| less than 1500 |   1   |
+	==========================
+${RC}"""
+	separator
+}
+
+fivehundred_stack_banner() {
+	echo -e """${YB}
+	FIVEHUNDRED-STACK BENCHMARK
+
+	===========================
+	| OPERATIONS      | GRADE |
+	===========================
+	| less than 5500  |   5   |
+	| less than 7000  |   4   |
+	| less than 8500  |   3   |
+	| less than 10000 |   2   |
+	| less than 11500 |   1   |
+	===========================
+${RC}"""
+	separator
+}
+
 run_ps() {
 	STACK="$1"
 
-	echo -e "${C}EXECUTING: ./push_swap $STACK${RC}"
+	echo -e "${C}EXECUTING:\n\
+${CB}./push_swap $STACK${RC}"
 	./push_swap $STACK
 
 	echo -e "${Y}RETURN: ${YB}$?${RC}"
@@ -76,8 +111,11 @@ run_ps() {
 }
 
 run_checker() {
-	echo -e "${C}EXECUTING: ./push_swap $1${RC}"
-	CHECKER_RESULT=$(./push_swap $1 | ./scripts/checker_linux $1)
+	if [ "${2}" == "" ]; then
+		CHECKER_RESULT=$(echo -n "${2}" | ./scripts/checker_linux $1)
+	else
+		CHECKER_RESULT=$(echo "${2}" | ./scripts/checker_linux $1)
+	fi
 
 	echo -en "${Y}CHECKER: "
 	if [ "$CHECKER_RESULT" == "OK" ]; then
@@ -90,15 +128,27 @@ run_checker() {
 
 count_moves() {
 	echo -en "${B}MOVES: ${BB}"
-	./push_swap $1 | wc -l
+	if [ "${1}" == "" ]; then
+		echo 0
+	else
+		echo -n "${1}" | wc -l
+	fi
 	echo -e "${RC}"
 }
 
 run_ps_with_checker() {
-	run_checker "$1"
-	count_moves "$1"
+	echo -e "${C}EXECUTING:\n\
+${CB}./push_swap $1${RC}"
+	PS_RESULT=$(./push_swap $1)
+
+	run_checker "$1" "${PS_RESULT}"
+	count_moves "${PS_RESULT}"
 	separator
 }
+
+################################################################################
+# INITIALIZE
+################################################################################
 
 make re || exit
 
@@ -106,75 +156,95 @@ make re || exit
 # BAD STACKS
 ################################################################################
 
-# bad_stacks_banner
+bad_stacks_banner
 
-# run_ps "2 one 3"
-# run_ps "2 1.1 3"
-# run_ps "2 1 -3.2"
-# run_ps "2 +2147483648 3"
-# run_ps "2 2147483648 3"
-# run_ps "2 -2147483649 3"
-# run_ps "2 2 3"
-# run_ps "1 2 2 3"
-# run_ps "3 2 1 3"
-# run_ps "999999999999999999999999999999999999999999999999999999999999"
-# run_ps "1 2 3 456	42	13	4684 -99999999999999999999999999999999999999999999999999999999999"
-# run_ps "-50	- "
+run_ps "2 one 3"
+run_ps "2 1.1 3"
+run_ps "2 1 -3.2"
+run_ps "2 +2147483648 3"
+run_ps "2 2147483648 3"
+run_ps "2 -2147483649 3"
+run_ps "2 2 3"
+run_ps "1 2 2 3"
+run_ps "3 2 1 3"
+run_ps "999999999999999999999999999999999999999999999999999999999999"
+run_ps "1 2 3 456	42	13	4684 -99999999999999999999999999999999999999999999999999999999999"
+run_ps "-50	- "
 
 ################################################################################
 # EMPTY STACK
 ################################################################################
 
-# empty_stacks_banner
-# run_ps ""
+empty_stacks_banner
+run_ps ""
 
 ################################################################################
 # GOOD STACKS
 ################################################################################
 
-# good_stacks_banner
+good_stacks_banner
 
-# run_ps_with_checker "1"
+run_ps_with_checker "1"
 
-# run_ps_with_checker "1 2"
-# run_ps_with_checker "2 1"
+run_ps_with_checker "1 2"
+run_ps_with_checker "2 1"
 
-# run_ps_with_checker "2 +2147483647 3"
-# run_ps_with_checker "2 2147483647 3"
-# run_ps_with_checker "2 -2147483648 3"
-# run_ps_with_checker "-2147483648 -2147483647 2147483647"
-# run_ps_with_checker "-2147483648 2147483647 -2147483647"
-# run_ps_with_checker "-2147483647 -2147483648 2147483647"
-# run_ps_with_checker "-2147483647 2147483647 -2147483648"
-# run_ps_with_checker "-2147483647 2147483647 -2147483648"
-# run_ps_with_checker "2147483647 -2147483647 -2147483648"
+run_ps_with_checker "2 +2147483647 3"
+run_ps_with_checker "2 2147483647 3"
+run_ps_with_checker "2 -2147483648 3"
+run_ps_with_checker "-2147483648 -2147483647 2147483647"
+run_ps_with_checker "-2147483648 2147483647 -2147483647"
+run_ps_with_checker "-2147483647 -2147483648 2147483647"
+run_ps_with_checker "-2147483647 2147483647 -2147483648"
+run_ps_with_checker "-2147483647 2147483647 -2147483648"
+run_ps_with_checker "2147483647 -2147483647 -2147483648"
 
-# run_ps_with_checker "1 2 3"
-# run_ps_with_checker "2 1 3"
-# run_ps_with_checker "5 0 2"
-# run_ps_with_checker "2 5 0"
-# run_ps_with_checker "0 5 2"
-# run_ps_with_checker "3 2 1"
-# run_ps_with_checker "3 1 2"
+run_ps_with_checker "1 2 3"
+run_ps_with_checker "2 1 3"
+run_ps_with_checker "5 0 2"
+run_ps_with_checker "2 5 0"
+run_ps_with_checker "0 5 2"
+run_ps_with_checker "3 2 1"
+run_ps_with_checker "3 1 2"
 
-# run_ps_with_checker "1 5 2 4 3"
-# run_ps_with_checker "9680 577 2599 743 4127"
-# run_ps_with_checker "-2147483647 2147483647 -2147483648 0 9487 "
+run_ps_with_checker "1 5 2 4 3"
+run_ps_with_checker "9680 577 2599 743 4127"
+run_ps_with_checker "-2147483647 2147483647 -2147483648 0 9487 "
 
-# run_ps_with_checker "2 1 3 6 5 8"
-# run_ps_with_checker "1 2 3 5 6 8"
-# run_ps_with_checker "1 2 3 5 8 6"
-# run_ps_with_checker "2 1 3 6 5 10 8"
+run_ps_with_checker "2 1 3 6 5 8"
+run_ps_with_checker "1 2 3 5 6 8"
+run_ps_with_checker "1 2 3 5 8 6"
+run_ps_with_checker "2 1 3 6 5 10 8"
 
-# run_ps_with_checker "-2 23 -20 39 -33 -21 -46 10 17 -13 37 -24 -35 -19 15 8 -8 \
-# 4 6 -44 -38 -11 -40 -22 -47 43 41 -1 29 48 28 -37 -45 11 -7 -26 30 26 -12 -14 \
-# -39 3 22 31 -25 -34 -42 21 -23 49 13 27 -9 -17 32 35 16 -41 38 -3 -29 44 33 42 \
-# 46 -31 9 40 19 24 1 -48 2 50 18 -4 12 36 -6 45 -32 -30 14 47 -27 -5 20 -28 -49 \
-# -10 0 -36 -16 -18 5 7 34 -43 -15 25"
+run_ps_with_checker "-2 23 -20 39 -33 -21 -46 10 17 -13 37 -24 -35 -19 15 8 -8 \
+4 6 -44 -38 -11 -40 -22 -47 43 41 -1 29 48 28 -37 -45 11 -7 -26 30 26 -12 -14 \
+-39 3 22 31 -25 -34 -42 21 -23 49 13 27 -9 -17 32 35 16 -41 38 -3 -29 44 33 42 \
+46 -31 9 40 19 24 1 -48 2 50 18 -4 12 36 -6 45 -32 -30 14 47 -27 -5 20 -28 -49 \
+-10 0 -36 -16 -18 5 7 34 -43 -15 25"
 
-# run_ps_with_checker "$(ruby -e "puts (1..5).to_a.shuffle.join(' ')")"
+run_ps_with_checker "$(ruby -e "puts (1..5).to_a.shuffle.join(' ')")"
 run_ps_with_checker "$(ruby -e "puts (1..10).to_a.shuffle.join(' ')")"
 run_ps_with_checker "$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")"
-# run_ps_with_checker "$(ruby -e "puts (1..500).to_a.shuffle.join(' ')")"
+run_ps_with_checker "$(ruby -e "puts (1..500).to_a.shuffle.join(' ')")"
 # run_ps_with_checker "$(ruby -e "puts (1..1000).to_a.shuffle.join(' ')")"
 # run_ps_with_checker "$(ruby -e "puts (1..10000).to_a.shuffle.join(' ')")"
+
+################################################################################
+# HUNDRED-STACK BENCHMARK
+################################################################################
+
+hundred_stack_banner
+
+for i in {1..5}; do
+	run_ps_with_checker "$(ruby -e "puts (-50..49).to_a.shuffle.join(' ')")"
+done
+
+################################################################################
+# FIVEHUNDRED-STACK BENCHMARK
+################################################################################
+
+fivehundred_stack_banner
+
+for i in {1..5}; do
+	run_ps_with_checker "$(ruby -e "puts (-250..249).to_a.shuffle.join(' ')")"
+done
