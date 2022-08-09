@@ -13,24 +13,25 @@
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include <libft.h>
-
 # include <defines_bonus.h>
+# include <libft.h>
 
 typedef struct s_push_swap
 {
-	bool	verbose;
+	bool		verbose;
 
-	int		argc;
-	char	**argv;
+	int			argc;
+	char		**argv;
 
-	int		new_int;
+	int			new_int;
 
-	t_dlist	*a;
-	t_dlist	*b;
+	t_dlist		*a;
+	t_dlist		*b;
 
-	t_list	*lalloc;
-}		t_push_swap;
+	t_dlist		*operations;
+
+	t_list		*lalloc;
+}				t_push_swap;
 
 typedef void	(*t_operation_cb)(void);
 
@@ -38,59 +39,61 @@ typedef void	(*t_operation_cb)(void);
  * CONTROL
 \******************************************************************************/
 
-t_push_swap	*c(void);
-void		initialize_control(int argc, char **argv);
+t_push_swap		*c(void);
+void			initialize_control(int argc, char **argv);
 
-bool		verbose(void);
-void		set_verbose(bool verbose);
+bool			verbose(void);
+void			set_verbose(bool verbose);
 
-int			argc(void);
-char		**argv(void);
+int				argc(void);
+char			**argv(void);
 
-t_dlist		**a(void);
-t_dlist		**b(void);
+t_dlist			**a(void);
+t_dlist			**b(void);
 
-t_list		**lalloc(void);
-void		free_memory(void);
+t_dlist			**operations(void);
+
+t_list			**lalloc(void);
+void			free_memory(void);
 
 /******************************************************************************\
  * ARGUMENTS
 \******************************************************************************/
 
-void		handle_arguments(void);
+void			handle_arguments(void);
 
-void		validate_argc(void);
+void			validate_argc(void);
 
-void		parse_argv(void);
-void		number_or_die(char *str);
-int			int_or_die(char *str);
+void			parse_argv(void);
+void			number_or_die(char *str);
+int				int_or_die(char *str);
 
 /******************************************************************************\
  * STDIN
 \******************************************************************************/
 
-void		receive_and_execute(void);
+void			receive_and_execute(void);
 
 /******************************************************************************\
  * OPERATIONS
 \******************************************************************************/
 
-void		sa(void);
-void		sb(void);
-void		ss(void);
+void			sa(void);
+void			sb(void);
+void			ss(void);
 
-void		pa(void);
-void		pb(void);
+void			pa(void);
+void			pb(void);
 
-void		ra(void);
-void		rb(void);
-void		rr(void);
+void			ra(void);
+void			rb(void);
+void			rr(void);
 
-void		rra(void);
-void		rrb(void);
-void		rrr(void);
+void			rra(void);
+void			rrb(void);
+void			rrr(void);
 
-void		execute(char *operation);
+void			execute(char *operation);
 t_operation_cb	resolve_operation(char *operation);
 t_operation_cb	resolve_operation_or_die(char *operation);
 
@@ -98,106 +101,30 @@ t_operation_cb	resolve_operation_or_die(char *operation);
  * STACKS
 \******************************************************************************/
 
-int			a_size(void);
-int			b_size(void);
+void			inspect_stacks(void);
+void			put_sort_status(void);
 
-void		inspect_stacks(void);
-void		put_sort_status(void);
+t_dlist			*clone_stack(t_dlist **original);
 
-t_dlist		*clone_stack_lalloc(t_dlist **original);
-t_dlist		*clone_stack(t_dlist **original);
+bool			is_sorted(void);
 
-bool		is_sorted(void);
+void			set_int(t_dlist *node, int number);
+int				get_int(t_dlist *node);
+int				get_next_int(t_dlist *node);
 
-void		set_int(t_dlist *node, int number);
-
-int			get_int(t_dlist *node);
-int			get_next_int(t_dlist *node);
-int			get_previous_int(t_dlist *node);
-
-int			get_int_by_index(t_dlist **stack, int index);
-int			get_a_int_by_index(int index);
-int			get_b_int_by_index(int index);
-int			first_int_of_a(void);
-int			first_int_of_b(void);
-
-t_dlist		*a_get_node(int index);
-t_dlist		*b_get_node(int index);
-
-t_dlist		*first_of_a(void);
-t_dlist		*first_of_b(void);
-
-t_dlist		*last_of_a(void);
-t_dlist		*last_of_b(void);
-
-void		normalize_a(void);
-
-bool		is_first_node(t_dlist *node);
-bool		is_middle_node(t_dlist *node);
-bool		is_last_node(t_dlist *node);
-
-int			find_max_int(t_dlist **stack);
-t_dlist		*find_max_node(t_dlist **stack);
-int			find_max_index(t_dlist **stack);
-
-t_dlist		*find_max_node_in_a(void);
-int			find_max_index_in_a(void);
-int			find_max_int_in_a(void);
-
-t_dlist		*find_max_node_in_b(void);
-int			find_max_index_in_b(void);
-int			find_max_int_in_b(void);
-
-int			find_min_int(t_dlist **stack);
-t_dlist		*find_min_node(t_dlist **stack);
-int			find_min_index(t_dlist **stack);
-
-t_dlist		*find_min_node_in_a(void);
-int			find_min_index_in_a(void);
-int			find_min_int_in_a(void);
-
-t_dlist		*find_min_node_in_b(void);
-int			find_min_index_in_b(void);
-int			find_min_int_in_b(void);
-
-void		swap_ints(t_dlist *i_node, t_dlist *j_node);
-void		swap_ints_by_index(t_dlist **stack, int i_index, int j_index);
-
-/******************************************************************************\
- * SORTERS
-\******************************************************************************/
-
-void		random_sort(void);
-
-void		free_bubble_sort(t_dlist **stack);
-void		free_bubble_sort_a(void);
-void		bubble_sort(void);
-
-void		free_quick_sort(t_dlist **stack, int start, int end);
-void		free_quick_sort_stack(t_dlist **stack);
-void		free_quick_sort_a(void);
-void		quick_sort(t_dlist **stack, int start, int end);
-void		quick_sort_a(void);
-
-void		two_sort(void);
-void		three_sort(void);
-void		five_sort(void);
-
-void		radix_sort(void);
-
-void		chunked_insertion_sort(int chunk_size);
+void			normalize_a(void);
 
 /******************************************************************************\
  * LOGGERS
 \******************************************************************************/
 
-void		log_state(void);
-void		log_normalized(void);
+void			log_state(void);
+void			log_normalized(void);
 
 /******************************************************************************\
  * ERRORS
 \******************************************************************************/
 
-void		die(void);
+void			die(void);
 
 #endif

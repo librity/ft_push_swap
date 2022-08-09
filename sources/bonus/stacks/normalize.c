@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 17:14:25 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 18:53:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:19:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 static void	normalize_ith_node(t_dlist *clone, t_dlist *i)
 {

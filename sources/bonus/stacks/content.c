@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_getters.c                                      :+:      :+:    :+:   */
+/*   content.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/26 15:38:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:22:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 int	get_int(t_dlist *node)
 {
@@ -22,7 +22,7 @@ int	get_next_int(t_dlist *node)
 	return (*(int *)(node->next->content));
 }
 
-int	get_previous_int(t_dlist *node)
+void	set_int(t_dlist *node, int number)
 {
-	return (*(int *)(node->prev->content));
+	*(int *)node->content = number;
 }
