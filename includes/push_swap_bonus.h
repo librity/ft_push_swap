@@ -69,12 +69,6 @@ void			number_or_die(char *str);
 int				int_or_die(char *str);
 
 /******************************************************************************\
- * STDIN
-\******************************************************************************/
-
-void			receive_and_execute(void);
-
-/******************************************************************************\
  * OPERATIONS
 \******************************************************************************/
 
@@ -93,9 +87,8 @@ void			rra(void);
 void			rrb(void);
 void			rrr(void);
 
-void			execute(char *operation);
-t_operation_cb	resolve_operation(char *operation);
-t_operation_cb	resolve_operation_or_die(char *operation);
+void			receive_operations(void);
+void			execute_operations(void);
 
 /******************************************************************************\
  * STACKS
@@ -107,6 +100,7 @@ void			put_sort_status(void);
 t_dlist			*clone_stack(t_dlist **original);
 
 bool			is_sorted(void);
+void			validate_sort(void);
 
 void			set_int(t_dlist *node, int number);
 int				get_int(t_dlist *node);

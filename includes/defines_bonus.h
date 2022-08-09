@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 19:25:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:49:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 
 # define NORMALIZE_MESSAGE "NORMALIZED STACK"
 # define NORMALIZE_MIN 0
+
+# define SORTED_MESSAGE "OK\n"
+# define UNSORTED_MESSAGE "KO\n"
 
 /******************************************************************************\
  * ERRORS

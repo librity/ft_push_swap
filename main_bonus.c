@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 16:48:40 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:46:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,9 @@ static void	initialize(int argc, char **argv)
 
 static void	sort(void)
 {
-	receive_and_execute();
-	if (is_sorted())
-	{
-		ft_putstr("OK\n");
-		return ;
-	}
-	ft_putstr("KO\n");
+	receive_operations();
+	execute_operations();
+	validate_sort();
 }
 
 static void	cleanup(void)
