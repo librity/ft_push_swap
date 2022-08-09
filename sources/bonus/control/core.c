@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/06 17:55:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:18:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 t_push_swap	*c(void)
 {
@@ -22,7 +22,6 @@ t_push_swap	*c(void)
 void	initialize_control(int argc, char **argv)
 {
 	c()->verbose = false;
-	c()->verbose = true;
 	c()->argc = argc;
 	c()->argv = argv;
 }

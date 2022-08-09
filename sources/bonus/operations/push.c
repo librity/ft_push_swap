@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/23 17:48:36 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:53:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 static t_dlist	**origin(char label)
 {
@@ -45,11 +45,9 @@ static void	p_(char label)
 void	pa(void)
 {
 	p_('a');
-	ft_putendl_fd(PUSH_TO_A, STDOUT_FILENO);
 }
 
 void	pb(void)
 {
 	p_('b');
-	ft_putendl_fd(PUSH_TO_B, STDOUT_FILENO);
 }

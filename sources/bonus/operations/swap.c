@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/23 18:06:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:54:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 static t_dlist	**resolve_stack(char label)
 {
@@ -42,18 +42,15 @@ static void	s_(char label)
 void	sa(void)
 {
 	s_('a');
-	ft_putendl_fd(SWAP_A, STDOUT_FILENO);
 }
 
 void	sb(void)
 {
 	s_('b');
-	ft_putendl_fd(SWAP_B, STDOUT_FILENO);
 }
 
 void	ss(void)
 {
 	s_('a');
 	s_('b');
-	ft_putendl_fd(SWAP_A_AND_B, STDOUT_FILENO);
 }

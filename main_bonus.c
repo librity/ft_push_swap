@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/06 17:52:09 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:48:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
 static void	initialize(int argc, char **argv)
 {
@@ -22,14 +22,13 @@ static void	initialize(int argc, char **argv)
 
 static void	sort(void)
 {
+	receive_and_execute();
 	if (is_sorted())
+	{
+		ft_putstr("OK\n");
 		return ;
-	if (get_total_size() <= 5)
-		return (five_sort());
-	// radix_sort();
-	if (get_total_size() <= 100)
-		return (chunked_insertion_sort(INSERTION_CHUNKS_100));
-	chunked_insertion_sort(INSERTION_CHUNKS_500);
+	}
+	ft_putstr("KO\n");
 }
 
 static void	cleanup(void)

@@ -25,7 +25,6 @@ typedef struct s_push_swap
 	char	**argv;
 
 	int		new_int;
-	int		total_size;
 
 	t_dlist	*a;
 	t_dlist	*b;
@@ -48,9 +47,6 @@ void		set_verbose(bool verbose);
 int			argc(void);
 char		**argv(void);
 
-int			get_total_size(void);
-void		set_total_size(void);
-
 t_dlist		**a(void);
 t_dlist		**b(void);
 
@@ -68,6 +64,12 @@ void		validate_argc(void);
 void		parse_argv(void);
 void		number_or_die(char *str);
 int			int_or_die(char *str);
+
+/******************************************************************************\
+ * STDIN
+\******************************************************************************/
+
+void		receive_and_execute(void);
 
 /******************************************************************************\
  * OPERATIONS
@@ -89,13 +91,8 @@ void		rrb(void);
 void		rrr(void);
 
 void		execute(char *operation);
-void		execute_n_times(char *operation, int n);
-
-void		push_all_to_a(void);
-void		push_all_to_b(void);
-
-void		rotate_to_top_of_a(int index);
-void		rotate_to_top_of_b(int index);
+t_operation_cb	resolve_operation(char *operation);
+t_operation_cb	resolve_operation_or_die(char *operation);
 
 /******************************************************************************\
  * STACKS

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:01:13 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:17:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,5 @@
 \******************************************************************************/
 
 # define ERR_GENERIC "Error\n"
-# define ERR_NULL_POINTER "ERROR: critical null pointer"
 
 #endif

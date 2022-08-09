@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:23:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:23:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static t_operation_cb	resolve_callback_or_die(char *operation)
+static t_operation_cb	resolve_callback(char *operation)
 {
 	if (ft_streq(operation, SWAP_A))
 		return (sa);
@@ -36,13 +36,22 @@ static t_operation_cb	resolve_callback_or_die(char *operation)
 		return (rrb);
 	if (ft_streq(operation, REVERSE_ROTATE_A_AND_B))
 		return (rrr);
-	die();
 	return (NULL);
+}
+
+static t_operation_cb	resolve_callback_or_die(char *operation)
+{
+	t_operation_cb	callbalk;
+
+	callbalk = resolve_callback(operation);
+	if (callbalk == NULL)
+		die();
+	return (callbalk);
 }
 
 void	execute(char *operation)
 {
-	void	(*callbalk)(void);
+	t_operation_cb	callbalk;
 
 	callbalk = resolve_callback_or_die(operation);
 	callbalk();

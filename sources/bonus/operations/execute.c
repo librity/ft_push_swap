@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:23:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:25:32 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
-static t_operation_cb	resolve_callback_or_die(char *operation)
+t_operation_cb	resolve_operation(char *operation)
 {
 	if (ft_streq(operation, SWAP_A))
 		return (sa);
@@ -36,26 +36,24 @@ static t_operation_cb	resolve_callback_or_die(char *operation)
 		return (rrb);
 	if (ft_streq(operation, REVERSE_ROTATE_A_AND_B))
 		return (rrr);
-	die();
 	return (NULL);
+}
+
+t_operation_cb	resolve_operation_or_die(char *operation)
+{
+	t_operation_cb	callbalk;
+
+	callbalk = resolve_operation(operation);
+	if (callbalk == NULL)
+		die();
+	return (callbalk);
 }
 
 void	execute(char *operation)
 {
-	void	(*callbalk)(void);
+	t_operation_cb	callbalk;
 
-	callbalk = resolve_callback_or_die(operation);
+	callbalk = resolve_operation_or_die(operation);
 	callbalk();
 	log_state();
-}
-
-void	execute_n_times(char *operation, int n)
-{
-	if (n <= 0)
-		return ;
-	while (n > 0)
-	{
-		execute(operation);
-		n--;
-	}
 }

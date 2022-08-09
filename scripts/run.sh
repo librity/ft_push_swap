@@ -6,13 +6,13 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/27 20:53:33 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/09 16:46:15 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP_DIR=""
-PUSH_SWAP=""
-CHECKER=""
+# PUSH_SWAP_DIR=""
+# PUSH_SWAP=""
+# CHECKER=""
 
 # Value of INT_MAX is +2147483647.
 # Value of INT_MIN is -2147483648.

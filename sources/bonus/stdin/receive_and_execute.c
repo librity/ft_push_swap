@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   two.c                                              :+:      :+:    :+:   */
+/*   receive_and_execute.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 21:11:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/25 19:11:08 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/25 22:47:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/09 17:31:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <push_swap_bonus.h>
 
-void	two_sort(void)
+void	receive_and_execute(void)
 {
-	t_dlist	*first;
-	t_dlist	*second;
+	int		status;
+	char	*line;
 
-	first = first_of_a();
-	second = first->next;
-	if (get_int(first) > get_int(second))
-		execute(SWAP_A);
+	while (true)
+	{
+		status = ft_get_next_line(STDIN_FILENO, &line);
+		if (status == GNL_ERROR)
+			die();
+		if (status == GNL_FOUND_EOF)
+		{
+			free(line);
+			return ;
+		}
+		execute(line);
+		free(line);
+	}
 }
