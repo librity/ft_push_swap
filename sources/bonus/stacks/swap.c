@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 00:51:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+void	swap_ints(t_dlist *i_node, t_dlist *j_node)
 {
-	int		min_index;
+	int	aux;
 
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	aux = get_int(i_node);
+	set_int(i_node, get_int(j_node));
+	set_int(j_node, aux);
 }
 
-static void	push_mins_to_b(void)
+void	swap_ints_by_index(t_dlist **stack, int i_index, int j_index)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
-}
+	t_dlist	*i_node;
+	t_dlist	*j_node;
 
-void	five_sort(void)
-{
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	i_node = ft_dlst_get_safe(stack, i_index);
+	j_node = ft_dlst_get_safe(stack, j_index);
+	swap_ints(i_node, j_node);
 }

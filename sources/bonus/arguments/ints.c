@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   ints.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/21 23:09:49 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/25 00:35:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+void	number_or_die(char *str)
 {
-	int		min_index;
-
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	if (ft_strlen(str) > ARG_MAX_LENGTH)
+		die();
+	if (ft_is_plus_or_minus(*str))
+		str++;
+	if (!ft_isdigit(*str))
+		die();
+	while (ft_isdigit(*str))
+		str++;
+	if (*str != '\0')
+		die();
 }
 
-static void	push_mins_to_b(void)
+int	int_or_die(char *str)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
-}
+	long	number;
 
-void	five_sort(void)
-{
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	number = ft_atol(str);
+	if (number > INT_MAX)
+		die();
+	if (number < INT_MIN)
+		die();
+	return ((int)number);
 }

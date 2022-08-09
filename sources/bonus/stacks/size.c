@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 23:29:37 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/24 23:33:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+int	a_size(void)
 {
-	int		min_index;
-
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	return (ft_dlstsize(*a()));
 }
 
-static void	push_mins_to_b(void)
+int	b_size(void)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
-}
-
-void	five_sort(void)
-{
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	return (ft_dlstsize(*b()));
 }

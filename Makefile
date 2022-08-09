@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/26 21:09:42 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/09 16:24:31 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,55 @@ fclean: clean
 re: fclean all
 
 ################################################################################
+# BONUS
+################################################################################
+
+B_NAME = checker
+
+B_HEADER = $(INCLUDES_PATH)/push_swap_bonus.h
+B_ARCHIVE = $(ARCHIVES_PATH)/push_swap_bonus.a
+
+B_SOURCES_PATH = $(SOURCES_PATH)/bonus
+B_OBJECTS_PATH = $(OBJECTS_PATH)/bonus
+
+B_SOURCES = $(wildcard $(B_SOURCES_PATH)/**/*.c) $(wildcard $(B_SOURCES_PATH)/*.c)
+# B_SOURCES = ./sources/bonus/children/child.c ./sources/bonus/children/forks.c ./sources/bonus/children/hdoc.c ./sources/bonus/cleanup/memory.c ./sources/bonus/commands/execute.c ./sources/bonus/commands/find.c ./sources/bonus/commands/or_die.c ./sources/bonus/commands/path.c ./sources/bonus/commands/paths.c ./sources/bonus/commands/split.c ./sources/bonus/commands/tokenize.c ./sources/bonus/errors/arguments.c ./sources/bonus/errors/die_1.c ./sources/bonus/errors/die_2.c ./sources/bonus/errors/print_error.c ./sources/bonus/files/close.c ./sources/bonus/files/create.c ./sources/bonus/files/create_outfile.c ./sources/bonus/files/open.c ./sources/bonus/files/open_infile.c ./sources/bonus/initializers/control.c ./sources/bonus/initializers/hdoc.c ./sources/bonus/initializers/nex.c ./sources/bonus/pipes/core.c ./sources/bonus/pipes/file.c ./sources/bonus/pipes/stdin.c ./sources/bonus/pipes/stdout.c ./sources/bonus/pipes/write.c ./sources/bonus/nex.c
+
+B_OBJECTS = $(patsubst $(B_SOURCES_PATH)/%.c, $(B_OBJECTS_PATH)/%.o, $(B_SOURCES))
+B_OBJECT_DIRECTORIES = $(sort $(dir $(B_OBJECTS)))
+
+B_MAIN = ./main_bonus.c
+
+B_ARCHIVES = $(B_ARCHIVE) $(LIBFT)
+
+allb: bonus
+
+bonus: $(B_NAME)
+
+$(B_NAME): $(LIBFT) $(B_ARCHIVE)
+	$(CC_STRICT) $(CCF_DEBUG) \
+		$(CCF_INCLUDES) \
+		$(B_MAIN) \
+		$(B_ARCHIVES) \
+		-o $(B_NAME)
+
+$(B_ARCHIVE): $(B_HEADER) $(B_OBJECTS)
+	$(ARCHIVE_AND_INDEX) $(B_ARCHIVE) $(B_OBJECTS)
+
+$(B_OBJECTS_PATH)/%.o: $(B_SOURCES_PATH)/%.c
+	$(CC_STRICT) $(CCF_INCLUDES) -c -o $@ $<
+
+
+cleanb:
+	$(REMOVE) $(B_OBJECTS)
+	$(REMOVE) $(B_ARCHIVE)
+
+fcleanb: cleanb
+	$(REMOVE) $(B_NAME)
+
+reb: fcleanb bonus
+
+################################################################################
 # DIRS
 ################################################################################
 
@@ -103,6 +152,9 @@ $(OBJECTS_PATH):
 
 $(M_OBJECT_DIRECTORIES):
 	$(SAFE_MAKEDIR) $@ && touch "$@.keep"
+
+$(B_OBJECT_DIRECTORIES):
+	$(SAFE_MAKEDIR) $@ && touch "$@/.keep"
 
 ################################################################################
 # CLEAN
@@ -236,8 +288,8 @@ norm:
 	@printf "\n$(G)=== No norminette errors found in $(SOURCES_PATH) ===$(RC)\n\n"
 	norminette $(M_MAIN)
 	@printf "\n$(G)=== No norminette errors found in $(M_MAIN) ===$(RC)\n\n"
-#	 norminette $(B_MAIN)
-#	 @printf "\n$(G)=== No norminette errors found in $(B_MAIN) ===$(RC)\n\n"
+	norminette $(B_MAIN)
+	@printf "\n$(G)=== No norminette errors found in $(B_MAIN) ===$(RC)\n\n"
 
 git:
 	git add -A
@@ -262,6 +314,8 @@ dump_sources:
 
 .PHONY: \
 all clean fclean re \
+\
+allb bonus cleanb fcleanb reb \
 \
 dirs \
 \

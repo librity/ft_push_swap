@@ -4,13 +4,14 @@
       "name": "Linux",
       "includePath": [
         "${workspaceFolder}/includes",
-        "${workspaceFolder}/libs/libft/includes"
+        "${workspaceFolder}/libs/libft/includes",
+        "~/.local/include"
       ],
       "defines": [],
-      "compilerPath": "/usr/bin/clang",
-      "cStandard": "c17",
-      "cppStandard": "c++14",
-      "intelliSenseMode": "linux-clang-x64"
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "${default}"
     }
   ],
   "version": 4

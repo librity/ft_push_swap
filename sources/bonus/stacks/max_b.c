@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   max_b.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 14:50:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+t_dlist	*find_max_node_in_b(void)
 {
-	int		min_index;
-
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	return (find_max_node(b()));
 }
 
-static void	push_mins_to_b(void)
+int	find_max_index_in_b(void)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
+	return (find_max_index(b()));
 }
 
-void	five_sort(void)
+int	find_max_int_in_b(void)
 {
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	return (find_max_int(b()));
 }

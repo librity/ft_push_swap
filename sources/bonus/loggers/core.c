@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   core.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 18:54:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+void	log_state(void)
 {
-	int		min_index;
-
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
-}
-
-static void	push_mins_to_b(void)
-{
-	while (a_size() > 3)
+	if (verbose())
 	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
+		inspect_stacks();
+		put_sort_status();
+		ft_endl();
 	}
 }
 
-void	five_sort(void)
+void	log_normalized(void)
 {
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	if (verbose())
+		ft_blueb_endl(NORMALIZE_MESSAGE);
+	log_state();
 }

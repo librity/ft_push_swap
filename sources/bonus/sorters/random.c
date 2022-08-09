@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/25 20:36:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+static char	*random_command(void)
 {
-	int		min_index;
+	int			random_index;
+	const char	*commands[11] = {
+		SWAP_A,
+		SWAP_B,
+		SWAP_A_AND_B,
+		PUSH_TO_A,
+		PUSH_TO_B,
+		ROTATE_A,
+		ROTATE_B,
+		ROTATE_A_AND_B,
+		REVERSE_ROTATE_A,
+		REVERSE_ROTATE_B,
+		REVERSE_ROTATE_A_AND_B};
 
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	random_index = ft_prand() % 11;
+	return ((char *)commands[random_index]);
 }
 
-static void	push_mins_to_b(void)
+void	random_sort(void)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
-}
-
-void	five_sort(void)
-{
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	while (!is_sorted())
+		execute(random_command());
 }

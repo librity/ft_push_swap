@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   free_bubble.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/27 00:53:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+void	free_bubble_sort(t_dlist **stack)
 {
-	int		min_index;
+	t_dlist	*i;
+	t_dlist	*j;
 
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
-}
-
-static void	push_mins_to_b(void)
-{
-	while (a_size() > 3)
+	i = *stack;
+	while (i != NULL)
 	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
+		j = i->next;
+		while (j != NULL)
+		{
+			if (get_int(i) > get_int(j))
+				swap_ints(i, j);
+			j = j->next;
+		}
+		i = i->next;
 	}
 }
 
-void	five_sort(void)
+void	free_bubble_sort_a(void)
 {
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	free_bubble_sort(a());
+	log_state();
 }

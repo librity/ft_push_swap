@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   int_getters.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/20 23:41:08 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/26 15:38:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+int	get_int(t_dlist *node)
 {
-	int		min_index;
-
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
-		return ;
-	rotate_to_top_of_a(min_index);
+	return (*(int *)(node->content));
 }
 
-static void	push_mins_to_b(void)
+int	get_next_int(t_dlist *node)
 {
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
+	return (*(int *)(node->next->content));
 }
 
-void	five_sort(void)
+int	get_previous_int(t_dlist *node)
 {
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	return (*(int *)(node->prev->content));
 }

@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five.c                                             :+:      :+:    :+:   */
+/*   three.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:58:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	rotate_min_to_top(void)
+static void	handle_biggest(void)
 {
-	int		min_index;
+	t_dlist	*biggest;
 
-	min_index = find_min_index_in_a();
-	if (min_index == 0)
+	biggest = find_max_node_in_a();
+	if (is_first_node(biggest))
+		execute(ROTATE_A);
+	else if (is_middle_node(biggest))
+		execute(REVERSE_ROTATE_A);
+}
+
+void	three_sort(void)
+{
+	if (is_sorted())
 		return ;
-	rotate_to_top_of_a(min_index);
-}
-
-static void	push_mins_to_b(void)
-{
-	while (a_size() > 3)
-	{
-		rotate_min_to_top();
-		execute(PUSH_TO_B);
-	}
-}
-
-void	five_sort(void)
-{
-	push_mins_to_b();
-	three_sort();
-	push_all_to_a();
+	handle_biggest();
+	two_sort();
 }
