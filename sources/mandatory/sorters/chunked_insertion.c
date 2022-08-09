@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 15:58:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 20:36:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,33 +158,48 @@ static void	rotate_next_to_b(void)
 	handle_intermediate_rotation();
 }
 
-void	chunked_insertion_sort(int chunk_size)
+static void	push_chunk_to_b(int cycles, int chunk)
 {
-	int	chunks;
 	int	chunk_start;
 	int	chunk_end;
-	int	cycles;
-	int	max_index;
+
+	chunk_start = cycles * (chunk - 1);
+	chunk_end = chunk_start + cycles - 1;
+	while (cycles > 0 && first_of_a() != NULL)
+	{
+		rotate_next_to_top_of_a(chunk_start, chunk_end);
+		rotate_next_to_b();
+		execute(PUSH_TO_B);
+		cycles--;
+	}
+}
+
+static void	push_chunks_to_b(int chunk_size)
+{
+	int	chunks;
 
 	chunks = (get_total_size() / chunk_size) + 1;
 	while (chunks > 0)
 	{
-		chunk_start = chunk_size * (chunks - 1);
-		chunk_end = chunk_start + chunk_size - 1;
-		cycles = chunk_size;
-		while (cycles > 0 && first_of_a() != NULL)
-		{
-			rotate_next_to_top_of_a(chunk_start, chunk_end);
-			rotate_next_to_b();
-			execute(PUSH_TO_B);
-			cycles--;
-		}
+		push_chunk_to_b(chunk_size, chunks);
 		chunks--;
 	}
+}
+
+static void	push_back_to_a(void)
+{
+	int	max_index;
+
 	while (first_of_b() != NULL)
 	{
 		max_index = find_max_index_in_b();
 		rotate_to_top_of_b(max_index);
 		execute(PUSH_TO_A);
 	}
+}
+
+void	chunked_insertion_sort(int chunk_size)
+{
+	push_chunks_to_b(chunk_size);
+	push_back_to_a();
 }

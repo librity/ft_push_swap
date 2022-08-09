@@ -12,6 +12,7 @@
   "files.associations": {
     "*.gohtml": "html",
     "*.s": "plaintext",
-    "push_swap_bonus.h": "c"
+    "push_swap_bonus.h": "c",
+    "push_swap.h": "c"
   }
 }

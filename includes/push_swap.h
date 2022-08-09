@@ -111,11 +111,10 @@ t_dlist		*clone_stack(t_dlist **original);
 
 bool		is_sorted(void);
 
-void		set_int(t_dlist *node, int number);
-
 int			get_int(t_dlist *node);
 int			get_next_int(t_dlist *node);
 int			get_previous_int(t_dlist *node);
+void		set_int(t_dlist *node, int number);
 
 int			get_int_by_index(t_dlist **stack, int index);
 int			get_a_int_by_index(int index);
