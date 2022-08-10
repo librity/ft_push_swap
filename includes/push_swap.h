@@ -138,6 +138,10 @@ int				get_b_int_by_index(int index);
 int				first_int_of_a(void);
 int				first_int_of_b(void);
 
+int				get_index_by_int(t_dlist **stack, int needle);
+int				get_a_index_by_int(int needle);
+int				get_b_index_by_int(int needle);
+
 t_dlist			*a_get_node(int index);
 t_dlist			*b_get_node(int index);
 

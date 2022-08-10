@@ -6,13 +6,13 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 00:36:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/10 01:20:54 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	handle_first_two_pushes(int	a_next_index)
+static void	handle_first_two_pushes(int a_next_index)
 {
 	rotate_to_top_of_a(a_next_index);
 	execute(PUSH_TO_B);

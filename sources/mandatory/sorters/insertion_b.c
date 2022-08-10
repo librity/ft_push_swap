@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 00:09:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/10 01:18:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,10 @@ static int	find_intermediate(int a_next)
 
 static int	find_intermediate_index(int a_next)
 {
-	t_dlist	*node;
 	int		intermediate;
-	int		intermediate_index;
 
 	intermediate = find_intermediate(a_next);
-	node = first_of_b();
-	intermediate_index = 0;
-	while (node != NULL)
-	{
-		if (get_int(node) == intermediate)
-			return (intermediate_index);
-		intermediate_index++;
-		node = node->next;
-	}
-	return (-1);
+	return (get_b_index_by_int(intermediate));
 }
 
 int	insertion_get_next_of_b_index(int a_next_index)

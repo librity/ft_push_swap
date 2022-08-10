@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/09 23:57:40 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/10 00:41:55 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -233,18 +233,18 @@ make re || exit
 # HUNDRED-STACK BENCHMARK
 ################################################################################
 
-# hundred_stack_banner
+hundred_stack_banner
 
-# for i in {1..5}; do
-# 	run_ps_with_checker "$(ruby -e "puts (-50..49).to_a.shuffle.join(' ')")"
-# done
+for i in {1..5}; do
+	run_ps_with_checker "$(ruby -e "puts (-50..49).to_a.shuffle.join(' ')")"
+done
 
 ################################################################################
 # FIVEHUNDRED-STACK BENCHMARK
 ################################################################################
 
-fivehundred_stack_banner
+# fivehundred_stack_banner
 
-for i in {1..5}; do
-	run_ps_with_checker "$(ruby -e "puts (-250..249).to_a.shuffle.join(' ')")"
-done
+# for i in {1..5}; do
+# 	run_ps_with_checker "$(ruby -e "puts (-250..249).to_a.shuffle.join(' ')")"
+# done
