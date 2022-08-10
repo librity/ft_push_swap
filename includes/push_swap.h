@@ -206,7 +206,7 @@ void			five_sort(void);
 
 void			radix_sort(void);
 
-void			chunked_insertion_sort(int chunk_size);
+void			insertion_sort(int chunk_size);
 int				insertion_get_next_of_a_index(int chunk_start, int chunk_end);
 int				insertion_get_next_of_b_index(int a_next_index);
 

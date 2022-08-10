@@ -15,6 +15,7 @@
     "push_swap_bonus.h": "c",
     "push_swap.h": "c",
     "defines.h": "c",
-    "chrono": "c"
+    "chrono": "c",
+    "libft.h": "c"
   }
 }
