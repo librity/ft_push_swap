@@ -92,6 +92,7 @@ void		execute_n_times(char *operation, int n);
 
 void		push_all_to_a(void);
 void		push_all_to_b(void);
+void		push_all_to_a_sorted(void);
 
 void		rotate_to_top_of_a(int index);
 void		rotate_to_top_of_b(int index);
@@ -144,10 +145,12 @@ int			find_max_index(t_dlist **stack);
 t_dlist		*find_max_node_in_a(void);
 int			find_max_index_in_a(void);
 int			find_max_int_in_a(void);
+void		rotate_max_to_top_of_a(void);
 
 t_dlist		*find_max_node_in_b(void);
 int			find_max_index_in_b(void);
 int			find_max_int_in_b(void);
+void		rotate_max_to_top_of_b(void);
 
 int			find_min_int(t_dlist **stack);
 t_dlist		*find_min_node(t_dlist **stack);
@@ -156,10 +159,12 @@ int			find_min_index(t_dlist **stack);
 t_dlist		*find_min_node_in_a(void);
 int			find_min_index_in_a(void);
 int			find_min_int_in_a(void);
+void		rotate_min_to_top_of_a(void);
 
 t_dlist		*find_min_node_in_b(void);
 int			find_min_index_in_b(void);
 int			find_min_int_in_b(void);
+void		rotate_min_to_top_of_b(void);
 
 void		swap_ints(t_dlist *i_node, t_dlist *j_node);
 void		swap_ints_by_index(t_dlist **stack, int i_index, int j_index);

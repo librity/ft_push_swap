@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 20:36:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 22:04:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	find_hold_last_index(int chunk_start, int chunk_end)
 	return (hold_last_index);
 }
 
-static void	rotate_next_to_top_of_a(int chunk_start, int chunk_end)
+static int	get_a_next_index(int chunk_start, int chunk_end)
 {
 	int	hold_first_index;
 	int	hold_last_index;
@@ -67,42 +67,23 @@ static void	rotate_next_to_top_of_a(int chunk_start, int chunk_end)
 	hold_first_moves = hold_first_index;
 	hold_last_moves = a_size() - hold_last_index + 1;
 	if (hold_last_moves >= hold_first_moves)
-		rotate_to_top_of_a(hold_first_index);
-	else
-		rotate_to_top_of_a(hold_last_index);
+		return (hold_first_index);
+	return (hold_last_index);
 }
 
-void	handle_max_rotation(void)
-{
-	int	max_index;
-
-	max_index = find_max_index_in_b();
-	rotate_to_top_of_b(max_index);
-}
-
-void	handle_min_push(void)
-{
-	int	min_index;
-
-	min_index = find_min_index_in_b();
-	rotate_to_top_of_b(min_index);
-}
-
-static int	find_intermediate(void)
+static int	find_intermediate(int a_next)
 {
 	t_dlist	*clone;
 	t_dlist	*node;
-	int		a_top;
 	int		intermediate;
 
 	clone = clone_stack(b());
 	free_quick_sort_stack(&clone);
-	a_top = first_int_of_a();
 	node = ft_dlstlast(clone);
 	while (node != NULL)
 	{
 		intermediate = get_int(node);
-		if (intermediate < a_top)
+		if (intermediate < a_next)
 		{
 			ft_dlst_free(&clone);
 			return (intermediate);
@@ -113,13 +94,13 @@ static int	find_intermediate(void)
 	return (-1);
 }
 
-static int	find_intermediate_index(void)
+static int	find_intermediate_index(int a_next)
 {
 	t_dlist	*node;
 	int		intermediate;
 	int		intermediate_index;
 
-	intermediate = find_intermediate();
+	intermediate = find_intermediate(a_next);
 	node = first_of_b();
 	intermediate_index = 0;
 	while (node != NULL)
@@ -132,43 +113,47 @@ static int	find_intermediate_index(void)
 	return (-1);
 }
 
-static void	handle_intermediate_rotation(void)
+static int	get_b_index(int a_next)
 {
-	int	intermediate_index;
-
-	intermediate_index = find_intermediate_index();
-	rotate_to_top_of_b(intermediate_index);
-}
-
-static void	rotate_next_to_b(void)
-{
-	int	a_top;
 	int	min;
 	int	max;
 
-	if (b_size() < 2)
-		return (execute(PUSH_TO_B));
-	a_top = first_int_of_a();
 	min = find_min_int_in_b();
 	max = find_max_int_in_b();
-	if (a_top > max)
-		return (handle_max_rotation());
-	if (a_top < min)
-		return (handle_max_rotation());
-	handle_intermediate_rotation();
+	if (a_next > max)
+		return (find_max_index_in_b());
+	if (a_next < min)
+		return (find_max_index_in_b());
+	return (find_intermediate_index(a_next));
 }
 
 static void	push_chunk_to_b(int cycles, int chunk)
 {
 	int	chunk_start;
 	int	chunk_end;
+	int	a_next;
+	int	a_next_index;
+	int	b_next_index;
 
 	chunk_start = cycles * (chunk - 1);
 	chunk_end = chunk_start + cycles - 1;
 	while (cycles > 0 && first_of_a() != NULL)
 	{
-		rotate_next_to_top_of_a(chunk_start, chunk_end);
-		rotate_next_to_b();
+		a_next_index = get_a_next_index(chunk_start, chunk_end);
+		if (ft_dlst_index_out_of_bounds(a(), a_next_index))
+			return ;
+		if (b_size() < 2)
+		{
+			rotate_to_top_of_a(a_next_index);
+			execute(PUSH_TO_B);
+			cycles--;
+			continue ;
+		}
+		a_next = get_a_int_by_index(a_next_index);
+		b_next_index = get_b_index(a_next);
+
+		rotate_to_top_of_a(a_next_index);
+		rotate_to_top_of_b(b_next_index);
 		execute(PUSH_TO_B);
 		cycles--;
 	}
@@ -186,20 +171,8 @@ static void	push_chunks_to_b(int chunk_size)
 	}
 }
 
-static void	push_back_to_a(void)
-{
-	int	max_index;
-
-	while (first_of_b() != NULL)
-	{
-		max_index = find_max_index_in_b();
-		rotate_to_top_of_b(max_index);
-		execute(PUSH_TO_A);
-	}
-}
-
 void	chunked_insertion_sort(int chunk_size)
 {
 	push_chunks_to_b(chunk_size);
-	push_back_to_a();
+	push_all_to_a_sorted();
 }

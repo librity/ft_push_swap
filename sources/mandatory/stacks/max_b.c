@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 20:52:19 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 14:50:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 21:06:42 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,12 @@ int	find_max_index_in_b(void)
 int	find_max_int_in_b(void)
 {
 	return (find_max_int(b()));
+}
+
+void	rotate_max_to_top_of_b(void)
+{
+	int	max_index;
+
+	max_index = find_max_index_in_b();
+	rotate_to_top_of_b(max_index);
 }

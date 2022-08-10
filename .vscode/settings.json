@@ -13,6 +13,8 @@
     "*.gohtml": "html",
     "*.s": "plaintext",
     "push_swap_bonus.h": "c",
-    "push_swap.h": "c"
+    "push_swap.h": "c",
+    "defines.h": "c",
+    "chrono": "c"
   }
 }
