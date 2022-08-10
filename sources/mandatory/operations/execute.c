@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 22:45:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/10 12:02:05 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,30 @@ static t_operation_cb	resolve_callback_or_die(char *operation)
 	return (callbalk);
 }
 
+static void	execute_operation(t_operation_cb callbalk)
+{
+	callbalk();
+	log_state();
+}
+
 void	execute(char *operation)
 {
 	t_operation_cb	callbalk;
 
 	callbalk = resolve_callback_or_die(operation);
-	callbalk();
-	log_state();
+	execute_operation(callbalk);
 }
 
 void	execute_n_times(char *operation, int n)
 {
+	t_operation_cb	callbalk;
+
 	if (n <= 0)
 		return ;
+	callbalk = resolve_callback_or_die(operation);
 	while (n > 0)
 	{
-		execute(operation);
+		execute_operation(callbalk);
 		n--;
 	}
 }

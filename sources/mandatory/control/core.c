@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 01:19:01 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/10 11:51:54 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_push_swap	*c(void)
 void	initialize_control(int argc, char **argv)
 {
 	c()->verbose = false;
+	// c()->verbose = true;
 	c()->argc = argc;
 	c()->argv = argv;
 }

@@ -47,6 +47,7 @@ void			set_verbose(bool verbose);
 int				argc(void);
 char			**argv(void);
 
+int				total_size(void);
 int				get_total_size(void);
 void			set_total_size(void);
 
@@ -210,9 +211,52 @@ void			five_sort(void);
 
 void			radix_sort(void);
 
+/******************************************************************************\
+ * INSERTION SORT
+\******************************************************************************/
+
 void			insertion_sort(int chunk_size);
 int				insertion_get_next_of_a_index(int chunk_start, int chunk_end);
 int				insertion_get_next_of_b_index(int a_next_index);
+
+/******************************************************************************\
+ * INSERTION SORT
+\******************************************************************************/
+
+typedef struct s_min_max_sort_vars
+{
+	int			min;
+	int			mid_start;
+	int			mid;
+	int			mid_end;
+	int			max;
+}				t_min_max_sort_vars;
+void			best_rotation_sort(void);
+
+typedef struct s_rotation
+{
+	int			ra;
+	int			rb;
+	int			rr;
+
+	int			rra;
+	int			rrb;
+	int			rrr;
+
+	int			total;
+}				t_rotation;
+void			push_by_best_rotation(void);
+
+typedef enum e_direction
+{
+	UP = 0,
+	DOWN = 1,
+	UP_DOWN = 2,
+	DOWN_UP = 3,
+	FIRST = UP,
+	LAST = DOWN_UP
+}				t_direction;
+t_rotation		get_rotation(int num, int i);
 
 /******************************************************************************\
  * LOGGERS

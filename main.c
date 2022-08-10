@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 01:19:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/10 13:41:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ static void	sort(void)
 		return ;
 	if (get_total_size() <= 5)
 		return (five_sort());
-	if (get_total_size() <= 100)
-		return (insertion_sort(INSERTION_CHUNK_SIZE_100));
-	radix_sort();
+	// if (get_total_size() <= 100)
+	// 	return (insertion_sort(INSERTION_CHUNK_SIZE_100));
+	// radix_sort();
+	best_rotation_sort();
 }
 
 static void	cleanup(void)
