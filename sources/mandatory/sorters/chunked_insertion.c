@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 22:04:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 23:03:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,9 @@ static void	push_chunk_to_b(int cycles, int chunk)
 		a_next = get_a_int_by_index(a_next_index);
 		b_next_index = get_b_index(a_next);
 
-		rotate_to_top_of_a(a_next_index);
-		rotate_to_top_of_b(b_next_index);
+		rotate_to_top_of_stacks(a_next_index, b_next_index);
+		// rotate_to_top_of_a(a_next_index);
+		// rotate_to_top_of_b(b_next_index);
 		execute(PUSH_TO_B);
 		cycles--;
 	}
@@ -174,5 +175,33 @@ static void	push_chunks_to_b(int chunk_size)
 void	chunked_insertion_sort(int chunk_size)
 {
 	push_chunks_to_b(chunk_size);
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
+	ft_bdebug(verbose(), "SIZE OF A: %d", a_size());
 	push_all_to_a_sorted();
 }

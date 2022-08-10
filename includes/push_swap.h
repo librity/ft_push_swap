@@ -94,8 +94,10 @@ void		push_all_to_a(void);
 void		push_all_to_b(void);
 void		push_all_to_a_sorted(void);
 
+void		rotate_to_top(char label, int index);
 void		rotate_to_top_of_a(int index);
 void		rotate_to_top_of_b(int index);
+void		rotate_to_top_of_stacks(int a_index, int b_index);
 
 /******************************************************************************\
  * STACKS

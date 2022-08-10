@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:50:40 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 21:04:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/09 22:21:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_dlist	**resolve_stack(char label)
 	return (NULL);
 }
 
-static void	rotate_to_top(char label, int index)
+void	rotate_to_top(char label, int index)
 {
 	t_dlist	**stack;
 	char	*r;
@@ -60,14 +60,4 @@ static void	rotate_to_top(char label, int index)
 	if (rr_moves >= r_moves)
 		return (execute_n_times(r, r_moves));
 	execute_n_times(rr, rr_moves);
-}
-
-void	rotate_to_top_of_a(int index)
-{
-	rotate_to_top('a', index);
-}
-
-void	rotate_to_top_of_b(int index)
-{
-	rotate_to_top('b', index);
 }

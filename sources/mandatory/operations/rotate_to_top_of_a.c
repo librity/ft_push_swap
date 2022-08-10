@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.c                                             :+:      :+:    :+:   */
+/*   rotate_to_top_of_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/09 23:11:57 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/27 15:50:40 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/09 22:21:26 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_push_swap	*c(void)
+void	rotate_to_top_of_a(int index)
 {
-	static t_push_swap	__control_instance;
-
-	return (&__control_instance);
-}
-
-void	initialize_control(int argc, char **argv)
-{
-	c()->verbose = false;
-	// c()->verbose = true;
-	c()->argc = argc;
-	c()->argv = argv;
+	rotate_to_top('a', index);
 }
