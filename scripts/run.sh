@@ -6,12 +6,12 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/11 15:56:52 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/11 16:29:23 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP_DIR="/home/lgeniole/code/ft/push_swap"
-CHECKER="/home/lgeniole/code/ft/push_swap/scripts/checker_linux"
+PUSH_SWAP_DIR="."
+CHECKER="./checker_linux"
 
 PUSH_SWAP=$PUSH_SWAP_DIR/push_swap
 
