@@ -6,18 +6,18 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 23:29:37 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/24 23:33:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:42:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	a_size(void)
+int	count_a(void)
 {
 	return (ft_dlstsize(*a()));
 }
 
-int	b_size(void)
+int	count_b(void)
 {
 	return (ft_dlstsize(*b()));
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:33:02 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 20:41:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:41:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	rotate_min_to_top(void)
 
 static void	push_mins_to_b(void)
 {
-	while (a_size() > 3)
+	while (count_a() > 3)
 	{
 		rotate_min_to_top();
 		execute(PUSH_TO_B);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 01:20:54 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:42:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	push_chunk_to_b(int cycles, int chunk)
 		a_next_index = insertion_get_next_of_a_index(chunk_start, chunk_end);
 		if (ft_dlst_index_out_of_bounds(a(), a_next_index))
 			return ;
-		if (b_size() < 2)
+		if (count_b() < 2)
 		{
 			handle_first_two_pushes(a_next_index);
 			cycles--;

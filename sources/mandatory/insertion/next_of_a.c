@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion_a.c                                      :+:      :+:    :+:   */
+/*   next_of_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 00:06:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:41:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	find_hold_last_index(int chunk_start, int chunk_end)
 	t_dlist	*node;
 	int		hold_last_index;
 
-	hold_last_index = a_size() - 1;
+	hold_last_index = count_a() - 1;
 	node = last_of_a();
 	while (node != NULL)
 	{
@@ -65,7 +65,7 @@ int	insertion_get_next_of_a_index(int chunk_start, int chunk_end)
 	hold_first_index = find_hold_first_index(chunk_start, chunk_end);
 	hold_last_index = find_hold_last_index(chunk_start, chunk_end);
 	hold_first_moves = hold_first_index;
-	hold_last_moves = a_size() - hold_last_index + 1;
+	hold_last_moves = count_a() - hold_last_index + 1;
 	if (hold_last_moves >= hold_first_moves)
 		return (hold_first_index);
 	return (hold_last_index);

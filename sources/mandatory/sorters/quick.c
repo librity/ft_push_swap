@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/27 13:13:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:41:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void	quick_sort(t_dlist **stack, int start, int end)
 
 void	quick_sort_a(void)
 {
-	quick_sort(a(), 0, a_size() - 1);
+	quick_sort(a(), 0, count_a() - 1);
 }

@@ -117,8 +117,8 @@ void			rotate_to_top_of_stacks(int a_index, int b_index);
  * STACKS
 \******************************************************************************/
 
-int				a_size(void);
-int				b_size(void);
+int				count_a(void);
+int				count_b(void);
 
 void			inspect_stacks(void);
 void			put_sort_status(void);
@@ -150,7 +150,9 @@ t_dlist			*first_of_a(void);
 t_dlist			*first_of_b(void);
 
 t_dlist			*last_of_a(void);
+int				last_int_of_a(void);
 t_dlist			*last_of_b(void);
+int				last_int_of_b(void);
 
 void			normalize_a(void);
 
@@ -220,18 +222,21 @@ int				insertion_get_next_of_a_index(int chunk_start, int chunk_end);
 int				insertion_get_next_of_b_index(int a_next_index);
 
 /******************************************************************************\
- * INSERTION SORT
+ * BEST ROTATION SORT
 \******************************************************************************/
 
-typedef struct s_min_max_sort_vars
+typedef struct s_groups
 {
 	int			min;
 	int			mid_start;
 	int			mid;
 	int			mid_end;
 	int			max;
-}				t_min_max_sort_vars;
+}				t_groups;
 void			best_rotation_sort(void);
+
+void			push_min_mid_groups_to_b(t_groups v);
+void			push_max_group_to_b(t_groups v);
 
 typedef struct s_rotation
 {
@@ -245,18 +250,24 @@ typedef struct s_rotation
 
 	int			total;
 }				t_rotation;
-void			push_by_best_rotation(void);
+void			push_to_a_by_best_rotation(void);
 
 typedef enum e_direction
 {
-	UP = 0,
-	DOWN = 1,
+	UP_UP = 0,
+	DOWN_DOWN = 1,
 	UP_DOWN = 2,
 	DOWN_UP = 3,
-	FIRST = UP,
+	FIRST = UP_UP,
+	SECOND = DOWN_DOWN,
 	LAST = DOWN_UP
 }				t_direction;
-t_rotation		get_rotation(int num, int i);
+t_rotation		get_rotation(int b_int, int b_index);
+void			set_up_up_rotation(t_rotation *r, int b_index, int a_index);
+void			set_down_down_rotation(t_rotation *r, int b_index, int a_index);
+void			set_up_down_rotation(t_rotation *r, int b_index, int a_index);
+void			set_down_up_rotation(t_rotation *r, int b_index, int a_index);
+int				find_a_insertion_index(int b_int);
 
 /******************************************************************************\
  * LOGGERS
