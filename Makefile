@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/09 16:24:31 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/11 14:19:41 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,7 +160,7 @@ $(B_OBJECT_DIRECTORIES):
 # CLEAN
 ################################################################################
 
-tclean: clean_libs fclean tests_clean example_clean vglog_clean
+tclean: clean_libs fclean fcleanb tests_clean example_clean vglog_clean
 
 ################################################################################
 # LIBS
