@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/11 13:42:11 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:17:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,3 @@ void	set_down_up_rotation(t_rotation *r, int b_index, int a_index)
 	r[DOWN_UP].rb = b_index;
 	set_total(&r[DOWN_UP]);
 }
-
