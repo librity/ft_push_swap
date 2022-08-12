@@ -167,6 +167,7 @@ rrr
 ```elixir
 |A: (top) 0 1 2 3 4 5 6 7 8 (bottom)|
 |B: (top) (bottom)|
+Is sorted: YES
 ```
 
 The more operations it takes to sort, the lower your grade.
@@ -192,7 +193,9 @@ sa
 rra
 pb
 KO
+```
 
+```bash
 $ ./checker 3 2 1 0
 rra
 pb
@@ -291,7 +294,7 @@ pa
 
 You can also [compile it with `verbose` mode](./sources/mandatory/control/core.c) for more details:
 
-```bash
+```elixir
 $ ./push_swap 7 1 8 9
 |A: (top) 7 1 8 9 (bottom)|
 |B: (top) (bottom)|
@@ -330,6 +333,36 @@ $ ./scripts/run_bonus.sh
 ```
 
 ## 📝 Notes <a name = "notes"></a>
+
+I implemented [many](./sources/mandatory/sorters)
+[sorting](./sources/mandatory/insertion)
+[algorithms](./sources/mandatory/best_rotation)
+before I could reach a good enough solution for a full grade.
+
+Due to the nature of this problem
+something like insertion sort with chunks is one of the best options.
+The [final sorter](./sources/mandatory/best_rotation) sends all
+elements to `stack b` by group/chunk, so the biggest are at the top
+and the smallest are at the bottom.
+They're not completely sorted but they're roughly were they need to be.
+
+It then pushes all the numbers back to `stack a`
+while maintaining `stack a` in order.
+That means we need to rotate some number to the top of `stack b`
+and then rotate the greatest closest number to it to the top of `stack a`.
+It finds the number of `stack b` that will take the least amount of rotations
+before pushing it to `stack a`,
+then executes that rotation and pushes it.
+
+Calculating the rotations is [pretty straight forward](./sources/mandatory/best_rotation/set_rotations.c):
+
+- The number of normal rotations (`ra` and `rb`) is the index of the number.
+- The number of reverse rotations (`rra` and `rrb`) is the size of the stack minus the index.
+- If we're doing the same type of rotation on both stacks we can optimize it further with `rr` and `rrr`.
+- The total number of operations is the sum of all the rotations.
+
+With a few while loops we can find the best rotation for each number,
+and then find the best rotation for all numbers.
 
 ## 🛸 42 São Paulo <a name = "ft_sp"></a>
 
