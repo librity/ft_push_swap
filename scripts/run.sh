@@ -6,12 +6,12 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/11 16:29:23 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/11 18:21:53 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP_DIR="."
-CHECKER="./checker_linux"
+CHECKER="./scripts/checker_linux"
 
 PUSH_SWAP=$PUSH_SWAP_DIR/push_swap
 
