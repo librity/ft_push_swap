@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/11 13:41:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/17 11:29:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	find_hold_last_index(int chunk_start, int chunk_end)
 	return (hold_last_index);
 }
 
-int	insertion_get_next_of_a_index(int chunk_start, int chunk_end)
+int	get_a_inserted_index(int chunk_start, int chunk_end)
 {
 	int	hold_first_index;
 	int	hold_last_index;

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/10 16:24:43 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/17 11:34:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void	push_groups_to_b(void)
 	three_sort();
 }
 
-void	best_rotation_sort(void)
+void	insertion_sort_v2(void)
 {
 	push_groups_to_b();
-	push_to_a_by_best_rotation();
+	insert_in_a_by_best_rotation();
 	rotate_min_to_top_of_a();
 }

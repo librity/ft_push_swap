@@ -214,15 +214,15 @@ void			five_sort(void);
 void			radix_sort(void);
 
 /******************************************************************************\
- * INSERTION SORT
+ * INSERTION SORT V1
 \******************************************************************************/
 
-void			insertion_sort(int chunk_size);
-int				insertion_get_next_of_a_index(int chunk_start, int chunk_end);
-int				insertion_get_next_of_b_index(int a_next_index);
+void			insertion_sort_v1(int chunk_size);
+int				get_a_inserted_index(int chunk_start, int chunk_end);
+int				get_b_insertion_index(int a_next_index);
 
 /******************************************************************************\
- * BEST ROTATION SORT
+ * INSERTION SORT V2
 \******************************************************************************/
 
 typedef struct s_groups
@@ -233,7 +233,7 @@ typedef struct s_groups
 	int			mid_end;
 	int			max;
 }				t_groups;
-void			best_rotation_sort(void);
+void			insertion_sort_v2(void);
 
 void			push_min_mid_groups_to_b(t_groups v);
 void			push_max_group_to_b(t_groups v);
@@ -250,7 +250,7 @@ typedef struct s_rotation
 
 	int			total;
 }				t_rotation;
-void			push_to_a_by_best_rotation(void);
+void			insert_in_a_by_best_rotation(void);
 
 typedef enum e_direction
 {

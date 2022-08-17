@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/11 16:17:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/17 11:42:32 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	sort(void)
 		return ;
 	if (get_total_size() <= 5)
 		return (five_sort());
-	best_rotation_sort();
+	insertion_sort_v2();
 }
 
 static void	cleanup(void)
