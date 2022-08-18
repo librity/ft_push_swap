@@ -329,7 +329,7 @@ Is sorted: YES
 For more examples see the tester script:
 
 ```bash
-$ ./scripts/run_bonus.sh
+$ ./scripts/run.sh
 ```
 
 ## 📝 Notes <a name = "notes"></a>
@@ -337,7 +337,7 @@ $ ./scripts/run_bonus.sh
 I implemented [many](./sources/mandatory/sorters)
 [sorting](./sources/mandatory/insertion_v1)
 [algorithms](./sources/mandatory/insertion_v2)
-before I could reach a good enough solution for a full grade.
+before I found a good enough solution for a full grade.
 
 Due to the nature of this problem
 something like insertion sort with chunks is one of the best options.
