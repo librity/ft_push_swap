@@ -335,13 +335,13 @@ $ ./scripts/run_bonus.sh
 ## 📝 Notes <a name = "notes"></a>
 
 I implemented [many](./sources/mandatory/sorters)
-[sorting](./sources/mandatory/insertion)
-[algorithms](./sources/mandatory/best_rotation)
+[sorting](./sources/mandatory/insertion_v1)
+[algorithms](./sources/mandatory/insertion_v2)
 before I could reach a good enough solution for a full grade.
 
 Due to the nature of this problem
 something like insertion sort with chunks is one of the best options.
-The [final sorter](./sources/mandatory/best_rotation) sends all
+The [final sorter](./sources/mandatory/insertion_v2) sends all
 elements to `stack b` by group/chunk, so the biggest are at the top
 and the smallest are at the bottom.
 They're not completely sorted but they're roughly were they need to be.
@@ -354,7 +354,7 @@ It finds the number of `stack b` that will take the least amount of rotations
 before pushing it to `stack a`,
 then executes that rotation and pushes it.
 
-Calculating the rotations is [pretty straight forward](./sources/mandatory/best_rotation/set_rotations.c):
+Calculating the rotations is [pretty straight forward](./sources/mandatory/insertion_v2/set_rotations.c):
 
 - The number of normal rotations (`ra` and `rb`) is the index of the number.
 - The number of reverse rotations (`rra` and `rrb`) is the size of the stack minus the index.
